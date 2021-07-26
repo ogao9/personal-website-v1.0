@@ -1,5 +1,5 @@
-import marked from 'marked'
 import Image from 'next/image'
+import marked from 'marked'
 import OliverProfile from '../public/images/oliver-profile.jpg'
 import Plants from '../public/images/plants-4-3.jpg'
 

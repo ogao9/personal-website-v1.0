@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useAuth } from "../lib/auth"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,10 +8,14 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 
 export default function Footer() {
     const auth = useAuth();
+    const router = useRouter();
 
     const handleSecret = ()=>{
-        console.log("auth.user", auth.user)
-        auth.signinWithGoogle();
+        if(!auth.user){
+            auth.signinWithGoogle();
+        }else{
+            router.push('/dashboard')
+        }
     }
 
     return (

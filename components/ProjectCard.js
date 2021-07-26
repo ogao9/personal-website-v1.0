@@ -10,12 +10,6 @@ export default function ProjectCard({projectInfo}) {
         <div className="project-card-grid shadow-md rounded">
             <div className="mb-2 overflow-hidden">
                 <img src={projectInfo.imageUrl} alt="Project Cover Photo" className="w-100 h-100 object-cover" />
-                {/* <Image
-                    src={projectInfo.imageUrl}
-                    alt="project cover photo"
-                    layout="fill"
-                    objectFit
-                /> */}
             </div>
 
             <div className="mb-1 px-3">
@@ -64,3 +58,9 @@ function Tag({title}){
     )
 }
 
+{/* <Image
+                    src={projectInfo.imageUrl}
+                    alt="project cover photo"
+                    layout="fill"
+                    objectFit
+                /> */}
