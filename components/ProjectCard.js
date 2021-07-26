@@ -34,7 +34,7 @@ export default function ProjectCard({projectInfo}) {
                     <button className="py-2 mt-1 font-bold text-md">Read More</button>
                 </a>
                 <div>
-                    <a href={projectInfo.link} target="_blank">
+                    <a href={projectInfo.link} target="_blank" rel="noreferrer"> 
                         <button>
                             <FontAwesomeIcon
                                 icon={faExternalLinkAlt}
@@ -42,7 +42,7 @@ export default function ProjectCard({projectInfo}) {
                             />
                         </button>
                     </a>
-                    <a href={projectInfo.github} target="_blank">
+                    <a href={projectInfo.github} target="_blank" rel="noreferrer">
                         <button>
                             <FontAwesomeIcon icon={faGithub} className="w-6" />
                         </button>

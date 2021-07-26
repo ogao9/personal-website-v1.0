@@ -34,7 +34,7 @@ export default function TopNav() {
                 </div>
 
                 <div className="hidden md:flex flex-40 justify-end items-center">
-                    <a href="https://github.com/ogao9" target="_blank">
+                    <a href="https://github.com/ogao9" target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faGithub} className="w-5 mr-8 tooltip">
                             <p className="text-sm tooltiptext">My Gitub</p>
                         </FontAwesomeIcon>
@@ -80,7 +80,7 @@ function MobileNavDropdown(){
             <Link href="/blog">
                 <a>Blog</a>
             </Link>
-            <a href="https://github.com/ogao9" target="_blank">
+            <a href="https://github.com/ogao9" target="_blank" rel="noreferrer">
                 <FontAwesomeIcon icon={faGithub} className="w-5 inline"/> My Github
             </a>
             <Link href="/contact">
