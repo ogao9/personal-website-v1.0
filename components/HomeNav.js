@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function HomeNav() {
     return (
-        <nav className="w-full flex justify-around home-nav">
+        <nav className="w-full flex justify-center home-nav">
             <Link href="/about">
                 <a>About</a>
             </Link>

@@ -11,7 +11,7 @@ export default function BlogHome({ postsInfo }) {
             <Meta title="Blog | Oliver Gao" />
             <Intro
                 title="Welcome to the Blog!"
-                subtitle="Thanks for reading my blog! Take it or leave it. They're just my ideas."
+                subtitle="A small collection of my thoughts and ideas"
             />
 
             <div className="lg:w-8/12 mx-auto">

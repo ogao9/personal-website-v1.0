@@ -27,9 +27,11 @@ export default function TopNav() {
                     </Link>
                 </div>
 
-                <div className="hidden md:flex flex-20 justify-center">
+                <div className="p-2 md:flex md:flex-20 md:justify-center">
                     <Link href="/">
-                        <a><FontAwesomeIcon icon={faCircle} className="w-8 text-yellow-500"/></a>
+                        <a className="font-medium text-lg flex items-center">
+                            <FontAwesomeIcon icon={faCircle} className="w-7 text-yellow-500 inline"/>liver Gao
+                        </a>
                     </Link>
                 </div>
 
@@ -40,26 +42,21 @@ export default function TopNav() {
                         </FontAwesomeIcon>
                     </a>
                     <Link href="/contact">
-                        <a><FontAwesomeIcon icon={faEnvelope} className="w-5 tooltip">
-                            <p className="text-sm tooltiptext">Contact Me</p>
-                        </FontAwesomeIcon></a>
+                        <a>
+                            <FontAwesomeIcon icon={faEnvelope} className="w-5 tooltip">
+                                <p className="text-sm tooltiptext">Contact Me</p>
+                            </FontAwesomeIcon>
+                        </a>
                     </Link>
                 </div>
 
                 <div className="md:hidden p-4">
-                    <Link href="/">
-                        <a><FontAwesomeIcon icon={faCircle} className="w-6 text-yellow-500 inline"/>liver Gao</a>
-                    </Link>
-                </div>
-
-                <div className="md:hidden p-4">
-                    <button onClick={()=>setExpand(!expand)}>
-                        <FontAwesomeIcon icon={faBars} className="w-5"/>
+                    <button onClick={() => setExpand(!expand)}>
+                        <FontAwesomeIcon icon={faBars} className="w-5" />
                     </button>
                 </div>
             </nav>
-
-            {expand && <MobileNavDropdown/>}
+            {expand && <MobileNavDropdown />}
         </div>
     );
 }
