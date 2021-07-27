@@ -3,7 +3,17 @@ import {AuthProvider} from '../lib/auth'
 import Layout from '../components/Layout'
 
 function MyApp({ Component, pageProps }) {
-          return (
+  console.log(Component);
+  console.log("name", Component.name)
+  switch(Component.name){
+      case "Home":
+        return (
+          <AuthProvider>
+            <Component {...pageProps} />
+          </AuthProvider>
+        )
+      default:
+        return (
           <AuthProvider>
             <Layout>
               <Component {...pageProps} />
@@ -11,6 +21,6 @@ function MyApp({ Component, pageProps }) {
           </AuthProvider>
         )
   }
-
+}
 
 export default MyApp
