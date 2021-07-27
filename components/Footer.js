@@ -19,7 +19,7 @@ export default function Footer() {
     }
 
     return (
-        <footer className="w-full bg-gray-50">
+        <footer className="w-full bg-gray-50 shadow-inner">
             <div className="w-full lg:w-9/12 mx-auto p-5 flex flex-col items-center">
                 <div className=" w-80 lg:w-96 flex justify-between mb-2">
                     <Link href="/about">
