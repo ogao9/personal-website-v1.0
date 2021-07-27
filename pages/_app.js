@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 
 function MyApp({ Component, pageProps }) {
   console.log(Component);
-  console.log("name", Component.name)
+  console.log("name", Component.displayName)
   switch(Component.name){
       case "Home":
         return (

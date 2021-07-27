@@ -2,6 +2,7 @@ import Meta from '../components/Meta'
 import HomeNav from '../components/HomeNav'
 
 export default function Home() {
+    
   return (
       <>
           <>
@@ -23,3 +24,5 @@ export default function Home() {
       </>
   );
 }
+
+Home.displayName = "Home"
