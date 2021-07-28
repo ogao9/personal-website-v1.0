@@ -1,6 +1,6 @@
 import Meta from "../../components/Meta";
-import {getPostPaths, getSinglePostInfo} from "../../lib/getPostInfo";
 import BlogContent from "../../components/BlogContent";
+import {getPostPaths, getSinglePostInfo} from "../../lib/getPostInfo";
 
 export default function SinglePost({frontmatter, content}) {
     return (

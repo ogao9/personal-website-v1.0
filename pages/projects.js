@@ -1,7 +1,7 @@
 import Meta from '../components/Meta'
 import Intro from '../components/Intro';
 import ProjectCard from '../components/ProjectCard';
-import { getProjects } from '../lib/db';
+import { projectInfo } from '../lib/data';
 
 export default function projects({projectData}) {
     return (
@@ -29,7 +29,7 @@ function ProjectCardGrid({data}){
 }
 
 export async function getStaticProps(){
-    const projectData = await getProjects();
+    const projectData = projectInfo;
 
     return{
         props:{

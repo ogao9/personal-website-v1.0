@@ -1,5 +1,3 @@
-
-
 export default function Intro({title, subtitle}) {
     return (
         <div className="text-center my-10">

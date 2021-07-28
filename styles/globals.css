@@ -26,14 +26,25 @@
 
 .tooltiptext{
     position: absolute;
+    width:max-content;
     top: 100%;
-    left: 50%;
-    z-index: 100;
+    margin-left: -1rem;
     display: none;
 }
 
 .tooltip:hover .tooltiptext{
     display: block;
+}
+
+.top-nav-links a{
+    padding: 1rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.top-nav-links .activeLink, .top-nav-links a:hover{
+    font-weight: bold;
 }
 
 .mobile-nav a{
@@ -43,32 +54,14 @@
     line-height: 1.5rem;
 }
 
-.home-nav a{
-    padding: 1rem;
-    margin-right: 8px;
-    color: rgb(31, 41, 55);
-    font-size: 1.25rem;
-    line-height: 1.5rem;
+.mobile-nav a:active{
+    background-color: rgba(249, 250, 251, 0.65);
 }
 
-.home-nav a:hover{
-    color: rgb(217, 119, 6);
-}
-
-.top-nav-left a{
-    padding: 1rem;
-    margin-right: 1rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-}
-
-.top-nav-left a:hover{
+.footer-nav a:hover, .footer-nav a:active{
     text-decoration: underline;
 }
 
-.home-background-cover{
-    background-color: whitesmoke;
-}
 
 .project-card-container{
     display: grid;

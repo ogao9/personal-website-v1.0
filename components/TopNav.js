@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,44 +9,44 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 export default function TopNav() {
     const [expand, setExpand] = useState(false);
+    const router = useRouter();
 
     return (
         <div className="w-full shadow bg-gray-50">
             <nav className="w-full lg:w-9/12 mx-auto flex items-center justify-between py-1">
-                <div className="hidden md:flex flex-40 items-center justify-start top-nav-left">
+                <div className="hidden md:flex flex-40 items-center justify-start top-nav-links">
                     <Link href="/about">
-                        <a>About</a>
+                        <a className={router.pathname === "/about" ? 'activeLink' : ""}>About</a>
                     </Link>
                     <Link href="/projects">
-                        <a>Projects</a>
+                        <a className={router.pathname === "/projects" ? 'activeLink' : ""}>Projects</a>
                     </Link>
                     <Link href="/play">
-                        <a>Play</a>
+                        <a className={router.pathname === "/play" ? 'activeLink' : ""}>Play</a>
                     </Link>
                     <Link href="/blog">
-                        <a>Blog</a>
+                        <a className={router.pathname === "/blog" ? 'activeLink' : ""}>Blog</a>
                     </Link>
                 </div>
 
                 <div className="p-2 md:flex md:flex-20 md:justify-center">
                     <Link href="/">
-                        <a className="font-medium text-lg flex items-center">
+                        <a className="text-lg flex items-center">
                             <FontAwesomeIcon icon={faCircle} className="w-7 text-yellow-500 inline"/>liver Gao
                         </a>
                     </Link>
                 </div>
 
                 <div className="hidden md:flex flex-40 justify-end items-center">
-                    <a href="https://github.com/ogao9" target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon icon={faGithub} className="w-5 mr-8 tooltip">
-                            <p className="text-sm tooltiptext">My Gitub</p>
-                        </FontAwesomeIcon>
+                    <a href="https://github.com/ogao9" target="_blank" rel="noreferrer" className="tooltip">
+                        <FontAwesomeIcon icon={faGithub} className="w-5 mr-8"/>
+                        <p className="text-sm font-semibold tooltiptext">My Github</p>
                     </a>
                     <Link href="/contact">
-                        <a>
-                            <FontAwesomeIcon icon={faEnvelope} className="w-5 tooltip">
-                                <p className="text-sm tooltiptext">Contact Me</p>
-                            </FontAwesomeIcon>
+                        <a className="tooltip">
+                            <FontAwesomeIcon icon={faEnvelope} className="w-5 "/>
+                         <p className="text-sm font-semibold tooltiptext">Contact Me</p>
+
                         </a>
                     </Link>
                 </div>

@@ -58,9 +58,11 @@ function Tag({title}){
     )
 }
 
-{/* <Image
-                    src={projectInfo.imageUrl}
-                    alt="project cover photo"
-                    layout="fill"
-                    objectFit
-                /> */}
+
+/* <Image
+    src={projectInfo.imageUrl}
+    alt="project cover photo"
+    layout="fill"
+    objectFit
+    /> 
+*/
