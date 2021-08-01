@@ -12,27 +12,27 @@ export default function TopNav() {
     const router = useRouter();
 
     return (
-        <div className="w-full shadow bg-gray-50">
-            <nav className="w-full lg:w-9/12 mx-auto flex items-center justify-between py-1">
-                <div className="hidden md:flex flex-40 items-center justify-start top-nav-links">
+        <div className="w-full shadow bg-yellow-400">
+            <div className="w-full lg:w-9/12 mx-auto flex items-center justify-between py-1">
+                <nav className="hidden md:flex flex-40 items-center justify-start top-nav-links">
+                    <Link href="/">
+                        <a className={router.pathname === "/" ? 'activeLink' : ""}>Home</a>
+                    </Link>
                     <Link href="/about">
                         <a className={router.pathname === "/about" ? 'activeLink' : ""}>About</a>
                     </Link>
                     <Link href="/projects">
                         <a className={router.pathname === "/projects" ? 'activeLink' : ""}>Projects</a>
                     </Link>
-                    <Link href="/play">
-                        <a className={router.pathname === "/play" ? 'activeLink' : ""}>Play</a>
-                    </Link>
                     <Link href="/blog">
                         <a className={router.pathname === "/blog" ? 'activeLink' : ""}>Blog</a>
                     </Link>
-                </div>
+                </nav>
 
                 <div className="p-2 md:flex md:flex-20 md:justify-center">
                     <Link href="/">
-                        <a className="text-lg flex items-center">
-                            <FontAwesomeIcon icon={faCircle} className="w-7 text-yellow-500 inline"/>liver Gao
+                        <a className="text-lg flex items-center font-medium">
+                            <FontAwesomeIcon icon={faCircle} className="w-7 text-yellow-600 inline"/>liver Gao
                         </a>
                     </Link>
                 </div>
@@ -40,13 +40,12 @@ export default function TopNav() {
                 <div className="hidden md:flex flex-40 justify-end items-center">
                     <a href="https://github.com/ogao9" target="_blank" rel="noreferrer" className="tooltip">
                         <FontAwesomeIcon icon={faGithub} className="w-5 mr-8"/>
-                        <p className="text-sm font-semibold tooltiptext">My Github</p>
+                        <p className="text-sm font-medium tooltiptext">My Github</p>
                     </a>
                     <Link href="/contact">
                         <a className="tooltip">
                             <FontAwesomeIcon icon={faEnvelope} className="w-5 "/>
-                         <p className="text-sm font-semibold tooltiptext">Contact Me</p>
-
+                            <p className="text-sm font-medium tooltiptext">Contact Me</p>
                         </a>
                     </Link>
                 </div>
@@ -56,7 +55,7 @@ export default function TopNav() {
                         <FontAwesomeIcon icon={faBars} className="w-5" />
                     </button>
                 </div>
-            </nav>
+            </div>
             {expand && <MobileNavDropdown />}
         </div>
     );
@@ -66,14 +65,14 @@ export default function TopNav() {
 function MobileNavDropdown(){
     return (
         <nav className="md:hidden mobile-nav">
+            <Link href="/">
+                <a>Home</a>
+            </Link>
             <Link href="/about">
                 <a>About</a>
             </Link>
             <Link href="/projects">
                 <a>Projects</a>
-            </Link>
-            <Link href="/play">
-                <a>Play</a>
             </Link>
             <Link href="/blog">
                 <a>Blog</a>

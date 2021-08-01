@@ -1,35 +1,41 @@
 import Image from 'next/image'
 import Meta from '../components/Meta'
 import Intro from '../components/Intro'
-import OliverRunning from '../public/images/oliver-running.jpg'
+import { aboutInfo } from '../lib/data'
 
-export default function about() {
+export default function about({data}) {
     return (
         <>
             <Meta title="About | Oliver Gao" />
-            <Intro title="About Me" subtitle="Who am I?" />
+            <Intro title="About Me" subtitle="An introduction" />
 
-            <div className="w-full lg:flex justify-center">
-                <div className="flex-50 flex justify-center overflow-hidden">
+            <div className="w-full lg:flex justify-center p-4">
+                <div className="flex-1 flex justify-center overflow-hidden rounded-lg">
                     <Image
-                        src={OliverRunning}
+                        src={data.image}
                         alt="Oliver Running"
                         width={400}
                         height={400}
                     />
                 </div>
-                <div className="flex-50 px-6">
-                    <h1 className="text-2xl font-bold mb-4">
-                        Hello! I'm Oliver. I'm a sophomore at the University of Michigan
-                        studying Data Science.
-                    </h1>
-                    <p className="mb-4">
-                        I enjoy creating things I can visually see and interact with,
-                        like websites and data visualizations. I want to use my skills to make the world a healthier and happier place.
-                    </p>
-                    <p>When I'm not coding, you can find me outside running, watching NBA basketball, or eating pretzels and fruit.</p>
+                <div className="flex-1 flex justify-center px-2">
+                    <div>
+                        <h1 className="text-2xl font-bold mb-4">{data.headline}</h1>
+                        <p className="mb-4">{data.interests}</p>
+                        <p>{data.forfun}</p>
+                    </div>
                 </div>
             </div>
         </>
     );
+}
+
+export function getStaticProps(){
+    const data = aboutInfo;
+
+    return {
+        props:{
+            data
+        }
+    }
 }

@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import marked from 'marked'
 import OliverProfile from '../public/images/oliver-profile.jpg'
-import Plants from '../public/images/plants-4-3.jpg'
 
 export default function BlogContent({frontmatter, content}) {
     return (
@@ -27,7 +26,7 @@ function BlogHeader({frontmatter}){
                     <p>{frontmatter.date}</p>
                 </div>
             </div>
-            <Image src={Plants} alt="Blog Post Cover"/>
+            <img src={frontmatter.cover_image} alt="Blog Post Cover"/>
         </div>
     )
 }
@@ -37,7 +36,7 @@ function BlogMeat({content}){
     return(
         <div
             dangerouslySetInnerHTML={{ __html: marked(content) }}
-            className="prose md:prose-sm"
+            className="prose"
         />
     )
 }

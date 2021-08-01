@@ -15,9 +15,14 @@
     .flex-40{
         flex: 0 0 40%;
     }
-    .flex-50{
-        flex: 0 0 50%;
-    }
+}
+
+.light-background{
+    background-color: rgb(254,250,246);
+}
+
+.project-details{
+    max-width: 105ch;
 }
 
 .tooltip{
@@ -26,9 +31,9 @@
 
 .tooltiptext{
     position: absolute;
-    width:max-content;
+    width: max-content;
     top: 100%;
-    margin-left: -1rem;
+    margin-left: -24px;
     display: none;
 }
 
@@ -39,12 +44,12 @@
 .top-nav-links a{
     padding: 1rem;
     margin-right: 1rem;
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.5rem;
 }
 
 .top-nav-links .activeLink, .top-nav-links a:hover{
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .mobile-nav a{
@@ -54,8 +59,8 @@
     line-height: 1.5rem;
 }
 
-.mobile-nav a:active{
-    background-color: rgba(249, 250, 251, 0.65);
+.mobile-nav a:active, .mobile-nav a:hover{
+    background-color: rgba(249, 250, 251, 0.8);
 }
 
 .footer-nav a:hover, .footer-nav a:active{
