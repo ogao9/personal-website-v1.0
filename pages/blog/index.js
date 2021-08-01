@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Meta from "../../components/Meta";
 import Intro from '../../components/Intro'
-import {getPostData} from "../../lib/getPostInfo";
+import BlogHomeStrip from '../../components/BlogHomeStrip'
+import {getAllPosts} from "../../lib/sanity";
 
 export default function BlogHome({ postsInfo }) {
     return (
@@ -16,9 +17,7 @@ export default function BlogHome({ postsInfo }) {
                 <div>
                     {postsInfo.map((obj, idx) => (
                         <Link href={`/blog/${obj.slug}`} key={idx}>
-                            <a>
-                                <BlogHomeStrip postInfo={obj}/>
-                            </a>
+                            <a><BlogHomeStrip postInfo={obj}/></a>
                         </Link>
                     ))}
                 </div>
@@ -27,32 +26,12 @@ export default function BlogHome({ postsInfo }) {
     );
 }
 
-export async function getStaticProps() {
-    const postsInfo = getPostData(); //postsInfo is an object containing this: {slug, frontmatter}
+export async function getStaticProps(){
+    const data = await getAllPosts();
 
     return {
         props: {
-            postsInfo,
+            postsInfo: data,
         },
     };
-}
-
-function BlogHomeStrip({postInfo}){
-    return(
-        <div className="w-full flex justify-between items-center mb-8">
-            <div>
-                <h1 className="text-2xl font-bold">{postInfo.frontmatter.title}</h1>
-                <h3>{postInfo.frontmatter.excerpt}</h3>
-                <div className="flex text-sm text-gray-700 mt-2">
-                    <p className="">{postInfo.frontmatter.date} &middot;</p>
-                    <p>&nbsp; Reading Time &middot;</p>
-                    <p>&nbsp; Tag</p>
-                </div>
-            </div>
-
-            <div className="w-28 h-20">
-                <img src={postInfo.frontmatter.cover_image} alt="Blog Cover Image" className="w-full h-full object-cover"/>
-            </div>
-        </div>
-    )
 }

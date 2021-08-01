@@ -9,8 +9,8 @@ export default function contact() {
             <Intro title="Contact Me" subtitle="Hello!" />
 
             <div className="lg:flex">
-                <div className="flex-50"><ContactForm/></div>
-                <div className="flex-50"><ContactInfo/></div>
+                <div className="flex-1"><ContactForm/></div>
+                <div className="flex-1"><ContactInfo/></div>
             </div>
         </>
     )
@@ -75,7 +75,6 @@ function ContactForm(){
 function ContactInfo(){
     return(
         <div className="bg-gradient-to-r from-green-400 to-blue-500 grid place-items-center h-full m-4 rounded-lg">
-            <p></p>
         </div>
     )
 }
