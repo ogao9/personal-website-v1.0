@@ -1,21 +1,30 @@
 import Meta from "../../components/Meta";
-import BlogContent from "../../components/BlogContent";
-import {getPostPaths, getSinglePostInfo} from "../../lib/getPostInfo";
+import BlogHeader from "../../components/BlogHeader";
+import BlockContent from '@sanity/block-content-to-react'
+import sanityClient from '../../lib/sanityClient'
+import { getPostData, getPostPaths } from "../../lib/sanity";
 
-export default function SinglePost({frontmatter, content}) {
+export default function SinglePost({postInfo}) {
     return (
         <>
-            <Meta title={`Oliver's Blog | ${frontmatter.title}`} />
-            <div className="grid place-items-center">
-                <BlogContent frontmatter={frontmatter} content={content}/>
+            <Meta title={`Oliver's Blog | ${postInfo.title}`} />
+
+            <div className="w-full lg:w-8/12 mx-auto ">
+                <BlogHeader postInfo={postInfo} />
+                <div className="prose max-w-full">
+                    <BlockContent
+                        blocks={postInfo.body}
+                        imageOptions={{ w: 320, h: 240, fit: "max" }}
+                        {...sanityClient.config()}
+                    />
+                </div>
             </div>
         </>
     );
 }
 
 export async function getStaticPaths(){
-    //we need to return an array of possible values for [slug]
-    const paths = getPostPaths();
+    const paths = await getPostPaths();
 
     return {
         paths,
@@ -23,15 +32,13 @@ export async function getStaticPaths(){
     }
 }
 
-export async function getStaticProps({params}){
-    //get data based on the slug by destructuring an object (which contains the params object passed from getStaticPaths)
-    const postSlug = params.slug;
-    const [content, frontmatter] = getSinglePostInfo(postSlug);
+export async function getStaticProps(context){
+    const postSlug = context.params.slug;
+    const data = await getPostData(postSlug);
 
     return{
         props:{
-            frontmatter,
-            content
+            postInfo: data,
         }
     }
 }
