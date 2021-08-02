@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faCircle } from '@fortawesome/free-regular-svg-icons'
@@ -31,7 +30,7 @@ export default function TopNav() {
 
                 <div className="p-2 md:flex md:flex-20 md:justify-center">
                     <Link href="/">
-                        <a className="text-lg flex items-center font-medium">
+                        <a className="text-lg flex items-center">
                             <FontAwesomeIcon icon={faCircle} className="w-7 text-yellow-600 inline"/>liver Gao
                         </a>
                     </Link>

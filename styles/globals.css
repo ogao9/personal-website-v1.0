@@ -35,6 +35,7 @@
     top: 100%;
     margin-left: -24px;
     display: none;
+    padding-top: 1px;
 }
 
 .tooltip:hover .tooltiptext{

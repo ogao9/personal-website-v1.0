@@ -1,22 +1,21 @@
-import Image from 'next/image'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faExternalLinkAlt, faInfoCircle} from '@fortawesome/free-solid-svg-icons'
-import { colorMap } from '../lib/data'
+import { urlFor } from '../lib/sanity'
 
 export default function ProjectCard({projectInfo}) {
     const [hover, setHover] = useState(false);
 
     return (
-        <div className="project-card-grid shadow-md rounded">
+        <article className="project-card-grid shadow-md rounded">
             <div
                 className="mb-2 overflow-hidden relative"
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >
                 <img
-                    src={projectInfo.imageUrl}
+                    src={urlFor(projectInfo.image).url()}
                     alt="Project Cover Photo"
                     className="w-100 h-100 object-cover"
                 />
@@ -24,8 +23,8 @@ export default function ProjectCard({projectInfo}) {
             </div>
 
             <div className="mb-1 px-3">
-                <h2 className="text-2xl font-bold">{projectInfo.title}</h2>
-                <p className="leading-snug">{projectInfo.description}</p>
+                <h2 className="text-2xl font-bold">{projectInfo.name}</h2>
+                <p className="leading-snug">{projectInfo.excerpt}</p>
             </div>
 
             <div className="flex px-3">
@@ -47,7 +46,7 @@ export default function ProjectCard({projectInfo}) {
                     </a>
                 </div>
             </div>
-        </div>
+        </article>
     );
 }
 
@@ -69,6 +68,7 @@ function ImageOverlay({projectInfo}){
 
 
 function Tag({title}){
+    const colorMap = { "React" : "bg-pink-300", "CSS":"bg-blue-300", "HTML":"bg-yellow-500", "D3.js":"bg-yellow-500", "MongoDB": "bg-green-300"}
     const color = colorMap[title] ? colorMap[title] : "bg-blue-300"
 
     return(

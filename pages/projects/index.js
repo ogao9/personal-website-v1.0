@@ -1,7 +1,7 @@
 import Meta from '../../components/Meta'
 import Intro from '../../components/Intro';
 import ProjectCard from '../../components/ProjectCard';
-import { projectInfo } from '../../lib/data';
+import { getAllProjects } from '../../lib/sanity';
 
 export default function projects({projectData}) {
     return (
@@ -18,18 +18,18 @@ export default function projects({projectData}) {
 
 function ProjectCardGrid({projectData}){
     return(
-        <div className="project-card-container grid place-items-center">
+        <section className="project-card-container grid place-items-center">
             {
                 projectData.map((project, idx)=>(
                     <ProjectCard key={idx} projectInfo={project}/> 
                 ))
             }
-        </div>
+        </section>
     )
 }
 
 export async function getStaticProps(){
-    const projectData = projectInfo;
+    const projectData = await getAllProjects();
 
     return{
         props:{

@@ -74,7 +74,6 @@ function ContactForm(){
 
 function ContactInfo(){
     return(
-        <div className="bg-gradient-to-r from-green-400 to-blue-500 grid place-items-center h-full m-4 rounded-lg">
-        </div>
+        <div className="bg-gradient-to-r from-green-400 to-blue-500 grid place-items-center h-full m-4 rounded-lg"/>
     )
 }

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
 export default function Footer() { 
-
     return (
         <footer className="w-full bg-yellow-400 shadow-inner">
             <div className="w-full lg:w-9/12 mx-auto p-5 flex flex-col items-center">

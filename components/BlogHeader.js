@@ -2,7 +2,7 @@ import { urlFor } from "../lib/sanity"
 
 export default function BlogHeader({postInfo}){
     return(
-        <div className="mt-8">
+        <header className="mt-8">
             <h1 className="text-3xl font-bold">{postInfo.title}</h1>
             <p className="mb-2">{postInfo.excerpt}</p>
 
@@ -19,6 +19,6 @@ export default function BlogHeader({postInfo}){
             </div>
             
             <img src={urlFor(postInfo.coverImage).url()} alt="Blog Post Cover"/>
-        </div>
+        </header>
     )
 }

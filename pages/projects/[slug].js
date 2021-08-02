@@ -1,37 +1,38 @@
 import Intro from "../../components/Intro";
 import Meta from "../../components/Meta";
-import { getProjectPaths, getProjectInfo } from "../../lib/getProjectInfo";
+import sanityClient from "../../lib/sanityClient";
+import BlockContent from '@sanity/block-content-to-react'
+import { getProjectPaths, getProjectData, urlFor } from "../../lib/sanity";
 
 export default function SingleProjectDetails({projectDetails}) {
     return (
         <div>
-            <Meta title={`Projects | ${projectDetails.title}`} />
-            <Intro title={projectDetails.title} subtitle="The Details" />
+            <Meta title={`Projects | ${projectDetails.name}`} />
+            <Intro title={projectDetails.name} subtitle="The Details" />
 
             <div className="w-full lg:w-9/12 mx-auto">
                 <img
-                    src={projectDetails.imageUrl}
+                    src={urlFor(projectDetails.image).url()}
                     alt="project cover"
                     className="w-100 h-auto object-cover"
                 />
             </div>
 
             <div className="w-full lg:w-9/12 mx-auto">
-                <div className="my-4">
-                    <h1 className="text-2xl font-bold">What it does</h1>
-                    <p>{projectDetails.details.introduction}</p>
-                </div>
-                <div className="my-4">
-                    <h1 className="text-2xl font-bold">The Technical Stuff</h1>
-                    <p>{projectDetails.details.technicalInfo}</p>
-                </div>
+                <article className="prose max-w-full">
+                    <BlockContent
+                        blocks={projectDetails.body}
+                        imageOptions={{ w: 320, h: 240, fit: "max" }}
+                        {...sanityClient.config()}
+                    />
+                </article>
             </div>
         </div>
     );
 }
 
 export async function getStaticPaths(){
-    const paths = getProjectPaths();
+    const paths = await getProjectPaths();
 
     return {
         paths,
@@ -41,7 +42,7 @@ export async function getStaticPaths(){
 
 export async function getStaticProps(context){
     const projectSlug = context.params.slug;
-    const projectDetails = getProjectInfo(projectSlug);
+    const projectDetails = await getProjectData(projectSlug);
 
     return{
         props:{

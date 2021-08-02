@@ -1,7 +1,7 @@
 import Meta from '../components/Meta'
-import { homeInfo } from '../lib/data';
+import { getHomeData } from '../lib/sanity';
 
-export default function Home() {
+export default function Home({homeData}) {
     
   return (
       <>
@@ -11,11 +11,12 @@ export default function Home() {
           <div className="w-full md:flex items-center">
               <div className="flex-1 p-4">
                   <h1 className="text-4xl lg:text-6xl mb-2 font-semibold">
-                      {homeInfo.headline}
+                      {homeData.headline}
                   </h1>
-                  <p className="text-xl mb-2">{homeInfo.subhead}</p>
+                  <p className="text-xl mb-2">{homeData.subhead}</p>
               </div>
-              <div className="flex-1 p-4 grid grid-cols-3 gap-4">
+
+              <section className="flex-1 p-4 grid grid-cols-3 gap-4">
                   <div className="h-36 bg-gray-200"></div>
                   <div className="h-36 bg-gray-200"></div>
                   <div className="h-36 bg-gray-200"></div>
@@ -25,10 +26,20 @@ export default function Home() {
                   <div className="h-36 bg-gray-200"></div>
                   <div className="h-36 bg-gray-200"></div>
                   <div className="h-36 bg-gray-200"></div>
-              </div>
+              </section>
           </div>
       </>
   );
+}
+
+export async function getStaticProps(){
+    const homeData = await getHomeData();
+
+    return{
+        props:{
+            homeData
+        }
+    }
 }
 
 
