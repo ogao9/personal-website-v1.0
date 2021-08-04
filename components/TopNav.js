@@ -1,17 +1,19 @@
+import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useTheme } from 'next-themes'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope, faCircle } from '@fortawesome/free-regular-svg-icons'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faCircle } from '@fortawesome/free-regular-svg-icons'
+import { faBars, faMoon } from '@fortawesome/free-solid-svg-icons'
 
 export default function TopNav() {
     const [expand, setExpand] = useState(false);
     const router = useRouter();
+    const {theme, setTheme} = useTheme();
 
     return (
-        <div className="w-full shadow bg-yellow-400">
+        <div className="w-full shadow bg-yellow-400 text-black dark:bg-gray-800 dark:text-gray-50">
             <div className="w-full lg:w-9/12 mx-auto flex items-center justify-between py-1">
                 <nav className="hidden md:flex flex-40 items-center justify-start top-nav-links">
                     <Link href="/">
@@ -37,16 +39,9 @@ export default function TopNav() {
                 </div>
 
                 <div className="hidden md:flex flex-40 justify-end items-center">
-                    <a href="https://github.com/ogao9" target="_blank" rel="noreferrer" className="tooltip">
-                        <FontAwesomeIcon icon={faGithub} className="w-5 mr-8"/>
-                        <p className="text-sm font-medium tooltiptext">My Github</p>
-                    </a>
-                    <Link href="/contact">
-                        <a className="tooltip">
-                            <FontAwesomeIcon icon={faEnvelope} className="w-5 "/>
-                            <p className="text-sm font-medium tooltiptext">Contact Me</p>
-                        </a>
-                    </Link>
+                    <button className="p-2" onClick={()=>setTheme(theme === 'light' ? 'dark' : 'light')}>
+                        <FontAwesomeIcon icon={faMoon} className="w-5" />
+                    </button>
                 </div>
 
                 <div className="md:hidden p-4">
@@ -76,12 +71,12 @@ function MobileNavDropdown(){
             <Link href="/blog">
                 <a>Blog</a>
             </Link>
-            <a href="https://github.com/ogao9" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faGithub} className="w-5 inline"/> My Github
-            </a>
             <Link href="/contact">
-                <a><FontAwesomeIcon icon={faEnvelope} className="w-5 inline"/> Contact Me</a>
+                <a>Contact Me</a>
             </Link>
+            <button>
+                <FontAwesomeIcon icon={faMoon} className="w-5 inline"/> Toggle Theme
+            </button>
         </nav>
     );
 }

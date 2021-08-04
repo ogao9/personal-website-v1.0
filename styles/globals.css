@@ -17,10 +17,6 @@
     }
 }
 
-.light-background{
-    background-color: rgb(254,250,246);
-}
-
 .project-details{
     max-width: 105ch;
 }
@@ -53,18 +49,18 @@
     font-weight: 500;
 }
 
-.mobile-nav a{
+.mobile-nav a, .mobile-nav button{
     display: block;
     padding: 1rem;
     font-size: 1rem;
     line-height: 1.5rem;
 }
 
-.mobile-nav a:active, .mobile-nav a:hover{
-    background-color: rgba(249, 250, 251, 0.8);
+.mobile-nav a:focus, .mobile-nav a:hover{
+    background-color: rgba(251, 191, 36, 0.8);
 }
 
-.footer-nav a:hover, .footer-nav a:active{
+.footer-nav a:hover, .footer-nav a:focus{
     text-decoration: underline;
 }
 

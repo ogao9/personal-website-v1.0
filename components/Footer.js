@@ -4,7 +4,7 @@ import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
 export default function Footer() { 
     return (
-        <footer className="w-full bg-yellow-400 shadow-inner">
+        <footer className="w-full shadow-inner bg-yellow-400 text-black dark:bg-gray-800 dark:text-gray-50">
             <div className="w-full lg:w-9/12 mx-auto p-5 flex flex-col items-center">
                 <nav className=" w-80 flex justify-between mb-2 footer-nav">
                     <Link href="/about">
