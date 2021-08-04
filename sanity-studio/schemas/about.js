@@ -24,6 +24,11 @@ export default {
         type: 'text',
       },
       {
+        name: 'resume',
+        title: 'Attach Resume',
+        type: 'file',
+      },
+      {
         name: 'featuredImage',
         title: 'Featured Image',
         type: 'image',
