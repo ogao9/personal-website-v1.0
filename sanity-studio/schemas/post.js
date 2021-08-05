@@ -37,15 +37,15 @@ export default {
       },
     },
     {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: {type: 'category'},
     },
     {
       name: 'publishedAt',
       title: 'Published at',
-      type: 'date',
+      type: 'datetime',
     },
     {
       name: 'body',

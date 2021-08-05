@@ -1,4 +1,6 @@
 import { urlFor } from "../lib/sanity"
+import { prettyDate } from "../lib/utlities"
+
 
 export default function BlogHeader({postInfo}){
     return(
@@ -14,7 +16,7 @@ export default function BlogHeader({postInfo}){
                 />
                 <div className="ml-4">
                     <p>Oliver Gao</p>
-                    <p>{postInfo.publishedAt}</p>
+                    <p>{prettyDate(postInfo.publishedAt)}</p>
                 </div>
             </div>
             
