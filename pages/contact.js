@@ -2,7 +2,7 @@ import Meta from '../components/Meta'
 import Intro from '../components/Intro'
 import { useState } from 'react';
 
-export default function contact() {
+export default function Contact() {
     return (
         <>
             <Meta title="Contact Me | Oliver Gao" />

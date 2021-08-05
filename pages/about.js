@@ -3,7 +3,7 @@ import Meta from '../components/Meta'
 import Intro from '../components/Intro'
 import { getAboutData, urlFor } from '../lib/sanity';
 
-export default function about({aboutData}) {
+export default function About({aboutData}) {
     return (
         <>
             <Meta title="About | Oliver Gao" />
