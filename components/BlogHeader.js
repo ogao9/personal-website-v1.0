@@ -1,4 +1,6 @@
 import { urlFor } from "../lib/sanity"
+import { prettyDate } from "../lib/utlities"
+
 
 export default function BlogHeader({postInfo}){
     return(
@@ -6,15 +8,15 @@ export default function BlogHeader({postInfo}){
             <h1 className="text-3xl font-bold">{postInfo.title}</h1>
             <p className="mb-2">{postInfo.excerpt}</p>
 
-            <div className="flex flex-row mb-4">
+            <div className="flex mb-4">
                 <img
                     src={urlFor(postInfo.authorImage).width(50).height(50).url()}
-                    alt="Blog Cover Image"
+                    alt="Blog Author Profile"
                     className="rounded-full"
                 />
                 <div className="ml-4">
                     <p>Oliver Gao</p>
-                    <p>{postInfo.publishedAt}</p>
+                    <p>{prettyDate(postInfo.publishedAt)}</p>
                 </div>
             </div>
             

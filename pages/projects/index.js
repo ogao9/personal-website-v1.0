@@ -1,9 +1,13 @@
 import Meta from '../../components/Meta'
 import Intro from '../../components/Intro';
-import ProjectCard from '../../components/ProjectCard';
+import ProjectCardGrid from '../../components/ProjectCardGrid'
 import { getAllProjects } from '../../lib/sanity';
+import { useState } from 'react';
 
-export default function projects({projectData}) {
+export default function Projects({projectData}) {
+    const [showMore, setMore] = useState(false);
+    const projectInfo = showMore ? projectData : projectData.slice(0,3);
+
     return (
         <>
             <Meta title="Projects | Oliver Gao" />
@@ -11,21 +15,16 @@ export default function projects({projectData}) {
                 title="Projects"
                 subtitle="A collection of the projects I've worked on"
             />
-            <ProjectCardGrid projectData={projectData}/>
+
+            <ProjectCardGrid projectInfo={projectInfo} />
+            
+            <div className="w-full flex justify-center my-6">
+                <button className="font-semibold px-4 py-2 bg-blue-300  hover:bg-blue-400" onClick={() => setMore(!showMore)}>
+                    {showMore ? "Show Less" : "Show More"}
+                </button>
+            </div>
         </>
     );
-}
-
-function ProjectCardGrid({projectData}){
-    return(
-        <section className="project-card-container grid place-items-center">
-            {
-                projectData.map((project, idx)=>(
-                    <ProjectCard key={idx} projectInfo={project}/> 
-                ))
-            }
-        </section>
-    )
 }
 
 export async function getStaticProps(){
