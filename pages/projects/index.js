@@ -15,10 +15,11 @@ export default function Projects({projectData}) {
                 title="Projects"
                 subtitle="A collection of the projects I've worked on"
             />
+
             <ProjectCardGrid projectInfo={projectInfo} />
             
-            <div className="w-full grid place-items-center">
-                <button className="p-4 bg-gray-200" onClick={() => setMore(!showMore)}>
+            <div className="w-full flex justify-center my-6">
+                <button className="font-semibold px-4 py-2 bg-blue-300  hover:bg-blue-400" onClick={() => setMore(!showMore)}>
                     {showMore ? "Show Less" : "Show More"}
                 </button>
             </div>

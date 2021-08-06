@@ -1,102 +1,109 @@
-import { useState } from 'react'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useTheme } from 'next-themes'
 
+import Logo from './Logo'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-regular-svg-icons'
-import { faBars, faMoon } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 
 export default function TopNav() {
-    const [expand, setExpand] = useState(false);
-    const router = useRouter();
     const {theme, setTheme} = useTheme();
+    const router = useRouter();
 
     return (
-        <div className="w-full shadow bg-yellow-400 text-black dark:bg-gray-800 dark:text-gray-50">
-            <div className="w-full lg:w-9/12 mx-auto flex items-center justify-between py-1">
-                <nav className="hidden md:flex flex-40 items-center justify-start top-nav-links">
-                    <Link href="/">
-                        <a className={router.pathname === "/" ? "activeLink" : ""}>
-                            Home
-                        </a>
-                    </Link>
-                    <Link href="/about">
-                        <a className={router.pathname === "/about" ? "activeLink" : ""}>
-                            About
-                        </a>
-                    </Link>
-                    <Link href="/projects">
-                        <a
-                            className={
-                                router.pathname === "/projects" ? "activeLink" : ""
-                            }
-                        >
-                            Projects
-                        </a>
-                    </Link>
-                    <Link href="/blog">
-                        <a className={router.pathname === "/blog" ? "activeLink" : ""}>
-                            Blog
-                        </a>
-                    </Link>
-                </nav>
-
-                <div className="p-2 md:flex md:flex-20 md:justify-center">
-                    <Link href="/">
-                        <a className="text-lg flex items-center">
-                            <FontAwesomeIcon
-                                icon={faCircle}
-                                className="w-7 text-yellow-600 inline"
-                            />
-                            liver Gao
-                        </a>
-                    </Link>
-                </div>
-
-                <div className="hidden md:flex flex-40 justify-end items-center">
-                    <button
-                        className="p-2"
-                        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-                    >
-                        <FontAwesomeIcon icon={faMoon} className="w-5" />
-                    </button>
-                </div>
-
-                <div className="flex justify-end items-center md:hidden">
-                    <button className="p-4" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
-                        <FontAwesomeIcon icon={faMoon} className="w-5 inline" /> 
-                    </button>
-                    <button className="p-4 ml-2" onClick={() => setExpand(!expand)}>
-                        <FontAwesomeIcon icon={faBars} className="w-5" />
-                    </button>
-                </div>
-            </div>
-            {expand && <MobileNavDropdown />}
+        <div className="w-full shadow bg-primary text-black-text dark:bg-black-surface dark:text-white-text">
+            <WideNavBar router={router} theme={theme} setTheme={setTheme}/>
+            <MobileNavDropdown router={router} theme={theme} setTheme={setTheme} />
         </div>
     );
 }
 
 
-function MobileNavDropdown(){
+function WideNavBar({router, theme, setTheme}){
+    return(
+        <nav className="hidden w-full lg:w-9/12 mx-auto md:flex items-center justify-between py-1 md:px-4 lg:px-0">
+            <div className="flex-40 flex items-center justify-start"> 
+                <Link href="/">
+                    <a className={`top-nav-link ${router.pathname === '/' ? "activeLink" : "" }`}>
+                        Home
+                    </a>
+                </Link>
+                <Link href="/about">
+                    <a className={`top-nav-link ${router.pathname === '/about' ? "activeLink" : "" }`}>
+                        About
+                    </a>
+                </Link>
+                <Link href="/projects">
+                    <a className={`top-nav-link ${router.pathname.startsWith('/projects') ? "activeLink" : "" }`}>
+                        Projects
+                    </a>
+                </Link>
+                <Link href="/blog">
+                    <a className={`top-nav-link ${router.pathname.startsWith('/blog') ? "activeLink" : "" }`}>
+                        Blog
+                    </a>
+                </Link>
+            </div>
+
+            <div className="flex-20 flex justify-center p-2">
+                <Logo/>
+            </div>
+                
+            <div className="flex-40 flex justify-end items-center">
+                <button
+                    className="p-2"
+                    onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                >
+                    <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} className="w-5" />
+                </button>
+            </div>
+        </nav>
+    )
+}
+
+function MobileNavDropdown({router, theme, setTheme}){
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    useEffect(() => {
+        if (menuOpen) {
+          setMenuOpen(!menuOpen);
+        }
+    }, [router.asPath]);
+
     return (
-        <nav className="md:hidden mobile-nav">
-            <Link href="/">
-                <a>Home</a>
-            </Link>
-            <Link href="/about">
-                <a>About</a>
-            </Link>
-            <Link href="/projects">
-                <a>Projects</a>
-            </Link>
-            <Link href="/blog">
-                <a>Blog</a>
-            </Link>
-            <Link href="/contact">
-                <a>Contact Me</a>
-            </Link>
+        <nav className="md:hidden">
+            <div className="flex justify-between px-4">
+                <Logo/>
+                <div className="flex justify-end items-center md:hidden">
+                    <button className="p-4" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+                        <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} className="w-5" /> 
+                    </button>
+                    <button className="p-2 ml-2" onClick={() => setMenuOpen(!menuOpen)}>
+                        <FontAwesomeIcon icon={faBars} className="w-5" />
+                    </button>
+                </div>
+            </div>
+
+            {menuOpen &&
+                <div>
+                    <Link href="/">
+                        <a className="mobile-link">Home</a>
+                    </Link>
+                    <Link href="/about">
+                        <a className="mobile-link">About</a>
+                    </Link>
+                    <Link href="/projects">
+                        <a className="mobile-link">Projects</a>
+                    </Link>
+                    <Link href="/blog">
+                        <a className="mobile-link">Blog</a>
+                    </Link>
+                    <Link href="/contact">
+                        <a className="mobile-link">Contact Me</a>
+                    </Link>
+                </div>
+            }
         </nav>
     );
 }
-

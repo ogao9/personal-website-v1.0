@@ -1,51 +1,39 @@
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faExternalLinkAlt, faInfoCircle} from '@fortawesome/free-solid-svg-icons'
 import { urlFor } from '../lib/sanity'
 
 export default function ProjectCard({projectInfo}) {
+    const router = useRouter()
     const [hover, setHover] = useState(false);
 
     return (
-        <article className="project-card-grid shadow-md rounded">
+        <article className="project-card shadow-md hover:shadow-xl rounded dark:bg-black-surface cursor-pointer" >
             <div
-                className="mb-2 overflow-hidden relative"
+                className="relative mb-3 overflow-hidden"
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >
                 <img
                     src={urlFor(projectInfo.image).url()}
                     alt="Project Cover Photo"
-                    className="w-100 h-100 object-cover"
+                    className="w-100 h-100 object-cover "
                 />
                 {hover && <ImageOverlay projectInfo={projectInfo}/>}
             </div>
 
-            <div className="mb-1 px-3">
-                <h2 className="text-2xl font-bold">{projectInfo.name}</h2>
-                <p className="leading-snug">{projectInfo.excerpt}</p>
-            </div>
-
-            <div className="flex px-3">
-                {projectInfo.technologies.map((item, idx) => (
-                    <Tag title={item} key={idx} />
-                ))}
-            </div>
-
-            <div className="w-full flex flex-row justify-between items-center px-3">
-                <a href={`/projects/${projectInfo.slug}`}>
-                    <button className="p-2 mt-1 font-bold text-md bg-gray-200 rounded hover:bg-gray-300">Read More</button>
-                </a>
-                <div>
-                    <a href={projectInfo.link} target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon icon={faExternalLinkAlt} className="w-6 inline"/>
-                    </a>
-                    <a href={projectInfo.github} target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon icon={faGithub} className="w-6 ml-3 inline" />
-                    </a>
+            <section onClick={()=>router.push(`/projects/${projectInfo.slug}`)}>
+                <div className="mb-1 px-3">
+                    <h2 className="text-2xl font-bold">{projectInfo.name}</h2>
+                    <p className="leading-snug">{projectInfo.excerpt}</p>
                 </div>
-            </div>
+                <div className="flex p-3">
+                    {projectInfo.technologies.map((item, idx) => (
+                        <Tag title={item} key={idx} />
+                    ))}
+                </div>
+            </section>
         </article>
     );
 }

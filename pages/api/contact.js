@@ -15,11 +15,14 @@ export default function handler(req, res) {
       submissionTime: req.body.submissionTime,
   };
 
-  client
+  return client
       .create(doc)
-      .then((response) => {
-          res.status(200).json({ status: "Submission Successful" });
+      .then(() => {
+          return res.status(200).json({ status: "Submission Successful" });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        return res.status(400).json(err)
+       });
 }
   
