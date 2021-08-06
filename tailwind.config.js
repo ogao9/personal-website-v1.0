@@ -15,27 +15,32 @@ module.exports = {
         },
         white:{
           DEFAULT: "#F7F7F7",
-          text: "#DEDEDE"
+          text: "#DEDEDE",
+          light: '#ffffff'
         }
       },
       animation: {
-        'toast': 'fadeIn 0.5s, fadeOut 0.5s 5s',
+        toast: 'fadeIn 7s forwards',
       },
       keyframes: {
         'fadeIn': {
           '0%': {opacity: '0'},
-          '100%': {opacity: '1'}
+          '25%': {opacity: '1'},
+          '75%': {opacity: '1'},
+          '100%': {opacity: '0'},
         },
-        'fadeOut': {
-          '0%': {opacity: '1'},
-          '100%': {opacity: '0'}
-        }
+      },
+      fontSize:{
+        'md' : ['1.02rem', {
+          lineHeight: '1.5rem'
+        }],
       }
   },
 },
   variants: {
     extend: {
       fontWeight: ["focus", "hover"]
+      
     },
   },
   plugins: [

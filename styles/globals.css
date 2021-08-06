@@ -4,7 +4,7 @@
 
 @layer components {
     .top-nav-link{
-        @apply px-2 py-4 mr-3 lg:p-4 lg:mr-4 text-base hover:font-semibold focus:font-semibold;
+        @apply px-2 py-4 mr-3 lg:p-4 lg:mr-4 text-md hover:font-semibold focus:font-semibold;
     }
     .mobile-link{
         @apply block p-4 text-base hover:bg-yellow-300 focus:bg-yellow-300;
@@ -14,6 +14,9 @@
     }
     .activeLink{
         @apply font-semibold;
+    }
+    .input{
+        @apply block mb-3 rounded-lg w-full border-2 border-gray-200 dark:bg-black-surface dark:border-transparent;
     }
 }
 
@@ -49,9 +52,4 @@
     display: block;
 }
 
-.contact-form input, .contact-form textarea{
-    display: block;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    width: 100%;
-}
+

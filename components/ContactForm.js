@@ -55,6 +55,7 @@ export default function ContactForm(){
             <label>
                 Name
                 <input
+                    className="input"
                     type="text"
                     onChange={(e) => handleChange(e, "name")}
                     value={formValues.name}
@@ -64,6 +65,7 @@ export default function ContactForm(){
             <label>
                 Email
                 <input
+                    className="input"
                     type="email"
                     onChange={(e) => handleChange(e, "email")}
                     value={formValues.email}
@@ -73,20 +75,29 @@ export default function ContactForm(){
             <label>
                 Message
                 <textarea
+                    className="input"
                     value={formValues.message}
                     onChange={(e) => handleChange(e, "message")}
                     required
                 />
             </label>
+             
             {loading ? 
-            <button className="w-16 py-2 bg-gray-100 rounded flex justify-center" disabled><FontAwesomeIcon icon={faSpinner} className="w-5 animate-spin"/></button> 
-            :<button type="submit" className="px-3 py-2 bg-blue-400 rounded">Submit</button>
+                <button className="w-20 py-2 bg-blue-500 rounded flex justify-center" disabled>
+                    <FontAwesomeIcon icon={faSpinner} className="w-5 animate-spin"/>
+                </button> 
+            :   <button type="submit" className=" bg-blue-500 hover:bg-blue-600 text-white-light rounded px-4 py-2">Submit</button>
             }
 
-<div className="p-2 mt-2 w-full bg-green-700 text-gray-50 rounded animate-toast">Your message was sent successfully!</div>
+            {success && 
+                <div className="px-3 py-2 mt-2 w-full bg-green-700 text-gray-50 rounded animate-toast">
+                    Your message was sent successfully!
+                </div> }
 
-            {success ? <div className="p-2 mt-2 w-full bg-green-700 text-gray-50 rounded animate-toast">Your message was sent successfully!</div> : null}
-            {error ? <div className="p-2 mt-2 w-full bg-red-400 text-gray-200 rounded">Sorry, something went wrong. Message failed to send.</div> : null}
+            {error &&
+                <div className="px-3 mt-2 w-full bg-red-500 text-gray-50 rounded animate-toast">
+                    Sorry, something went wrong. Message failed to send.
+                </div>}
         </form>
     );
 }

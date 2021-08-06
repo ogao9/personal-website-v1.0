@@ -10,17 +10,22 @@ import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 export default function TopNav() {
     const {theme, setTheme} = useTheme();
     const router = useRouter();
+    const [themeIcon, setIcon] = useState(faMoon)
+
+    useEffect(()=>{
+        setIcon(theme === "light" ? faMoon : faSun)
+    },[theme])
 
     return (
         <div className="w-full shadow bg-primary text-black-text dark:bg-black-surface dark:text-white-text">
-            <WideNavBar router={router} theme={theme} setTheme={setTheme}/>
-            <MobileNavDropdown router={router} theme={theme} setTheme={setTheme} />
+            <WideNavBar router={router} theme={theme} setTheme={setTheme} themeIcon={themeIcon}/>
+            <MobileNavDropdown router={router} theme={theme} setTheme={setTheme} themeIcon={themeIcon} />
         </div>
     );
 }
 
 
-function WideNavBar({router, theme, setTheme}){
+function WideNavBar({router, theme, setTheme, themeIcon}){
     return(
         <nav className="hidden w-full lg:w-9/12 mx-auto md:flex items-center justify-between py-1 md:px-4 lg:px-0">
             <div className="flex-40 flex items-center justify-start"> 
@@ -55,14 +60,14 @@ function WideNavBar({router, theme, setTheme}){
                     className="p-2"
                     onClick={() => setTheme(theme === "light" ? "dark" : "light")}
                 >
-                    <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} className="w-5" />
+                    <FontAwesomeIcon icon={themeIcon} className="w-5" />
                 </button>
             </div>
         </nav>
     )
 }
 
-function MobileNavDropdown({router, theme, setTheme}){
+function MobileNavDropdown({router, theme, setTheme, themeIcon}){
     const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -77,7 +82,7 @@ function MobileNavDropdown({router, theme, setTheme}){
                 <Logo/>
                 <div className="flex justify-end items-center md:hidden">
                     <button className="p-4" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
-                        <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} className="w-5" /> 
+                        <FontAwesomeIcon icon={themeIcon} className="w-5" /> 
                     </button>
                     <button className="p-2 ml-2" onClick={() => setMenuOpen(!menuOpen)}>
                         <FontAwesomeIcon icon={faBars} className="w-5" />
@@ -102,8 +107,7 @@ function MobileNavDropdown({router, theme, setTheme}){
                     <Link href="/contact">
                         <a className="mobile-link">Contact Me</a>
                     </Link>
-                </div>
-            }
+                </div>}
         </nav>
     );
 }

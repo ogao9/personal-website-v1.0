@@ -13,7 +13,7 @@ export default function Contact() {
                 <div className="flex-1 flex justify-center p-4">
                     <ContactForm/>
                 </div>
-                <div className="flex-1 p-4">
+                <div className="flex-1 m-4">
                     <div className="bg-gradient-to-r from-green-400 to-blue-500 h-full rounded-lg"/>
                 </div>
             </div>
