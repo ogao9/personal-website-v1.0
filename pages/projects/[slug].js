@@ -4,10 +4,12 @@ import sanityClient from "../../lib/sanityClient";
 import BlockContent from '@sanity/block-content-to-react'
 import { getProjectPaths, getProjectData, urlFor } from "../../lib/sanity";
 
+
+
 export default function SingleProjectDetails({projectDetails}) {
     return (
         <div>
-            <Meta title={`Projects | ${projectDetails.name}`} />
+            <Meta title={`${projectDetails.name} | Oliver Gao`} />
             <Intro title={projectDetails.name} subtitle="The Details" />
 
             <div className="w-full lg:w-9/12 mx-auto">
@@ -19,7 +21,7 @@ export default function SingleProjectDetails({projectDetails}) {
             </div>
 
             <div className="w-full lg:w-9/12 mx-auto">
-                <article className="prose max-w-full">
+                <article className="prose dark:prose-dark max-w-full">
                     <BlockContent
                         blocks={projectDetails.body}
                         imageOptions={{ w: 320, h: 240, fit: "max" }}

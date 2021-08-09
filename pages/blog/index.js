@@ -13,7 +13,7 @@ export default function BlogHome({ postsInfo }) {
                 subtitle="A small collection of my thoughts and ideas"
             />
 
-            <section className="lg:w-8/12 mx-auto">
+            <section className="w-full lg:w-8/12 mx-auto">
                 <div>
                     {postsInfo.map((obj, idx) => (
                         <Link href={`/blog/${obj.slug}`} key={idx}>

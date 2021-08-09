@@ -11,7 +11,7 @@ export default function SinglePost({postInfo}) {
 
             <div className="w-full lg:w-8/12 mx-auto ">
                 <BlogHeader postInfo={postInfo} />
-                <article className="prose max-w-full">
+                <article className="prose dark:prose-dark max-w-full">
                     <BlockContent
                         blocks={postInfo.body}
                         imageOptions={{ w: 320, h: 240, fit: "max" }}

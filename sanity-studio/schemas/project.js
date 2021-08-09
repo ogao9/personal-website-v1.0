@@ -18,6 +18,11 @@ export default {
         },
       },
       {
+        name: 'publishDate',
+        title: 'Date Published',
+        type: 'date',
+      },
+      {
         name: 'excerpt',
         title: 'Excerpt',
         type: 'text',

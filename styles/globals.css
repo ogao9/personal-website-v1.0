@@ -40,7 +40,7 @@
 
 .project-card{
     display: grid;
-    grid-template-rows: 175px 4fr max-content;
+    grid-template-rows: 175px 3fr 1fr;
     max-width: 375px;
     width: 100%;
     height: 100%;
