@@ -16,10 +16,9 @@ export default {
     {
       title: 'Block',
       type: 'block',
-      // Styles let you set what your user can mark up blocks with. These
-      // correspond with HTML tags, but you can set any title or value
-      // you want and decide how you want to deal with it where you want to
-      // use your content.
+      // Styles let you set what your user can mark up blocks with. 
+      // These correspond with HTML tags, but you can set any title or value
+      // you want and decide how you want to deal with it where you want to use your content.
       styles: [
         {title: 'Normal', value: 'normal'},
         {title: 'H1', value: 'h1'},
@@ -55,11 +54,14 @@ export default {
       },
     },
     // You can add additional types here. Note that you can't use
-    // primitive types such as 'string' and 'number' in the same array
-    // as a block type.
+    // primitive types such as 'string' and 'number' in the same array as a block type.
     {
+      title: "Image",
       type: 'image',
       options: {hotspot: true},
     },
+    {
+      type: 'code'
+    }
   ],
 }

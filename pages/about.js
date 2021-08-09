@@ -27,6 +27,8 @@ export default function About({aboutData}) {
                     </p>
                 </section>
             </div>
+
+             
         </>
     );
 }

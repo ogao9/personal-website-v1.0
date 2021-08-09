@@ -31,7 +31,7 @@ module.exports = {
         },
       },
       fontSize:{
-        'md' : ['1.02rem', {
+        'md' : ['1.03rem', {
           lineHeight: '1.5rem'
         }],
       }
