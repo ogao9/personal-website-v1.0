@@ -6,10 +6,10 @@ export default function Home({homeData}) {
   return (
       <>
           <Meta title="Home | Oliver Gao" />
-          <div className="w-full h-8 lg:h-32"/>
+          <div className="w-full h-8 lg:h-24"/>
 
           <div className="w-full md:flex items-center">
-              <div className="flex-1 p-4">
+              <div className="flex-1">
                   <h1 className="text-4xl lg:text-6xl mb-2 font-semibold">
                       {homeData.headline}
                   </h1>

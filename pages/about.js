@@ -20,13 +20,13 @@ export default function About({aboutData}) {
                     <p className="mb-5">{aboutData.interests}</p>
                     <p className="mb-5">{aboutData.funFacts}</p>
                     <p>Learn more about me on:</p>
-                    <p>
-                        Gitub <a href="https://github.com/ogao9" className="border-b-2 border-black" target="_blank" rel="noreferrer">@ogao9</a> or 
-                        Resume <a href={`${aboutData.resumeURL}`} className="border-b-2 border-black" target="_blank" rel="noreferrer">Here</a> or&nbsp;
-                        <Link href='/contact'><a className="border-b-2 border-black">Contact Me</a></Link>
-                    </p>
+                    <p className="ml-6">Gitub @<a href="https://github.com/ogao9" className="underline hover:font-semibold" target="_blank" rel="noreferrer">ogao9</a></p>
+                    <p className="ml-6">Resume <a href="/OliverGao-Resume.pdf" className="underline hover:font-semibold" target="_blank" rel="noreferrer">Here</a></p>
+                    <p className="ml-6">or <Link href='/contact'><a className="underline hover:font-semibold">Contact Me</a></Link></p>
                 </section>
             </div>
+
+             
         </>
     );
 }
@@ -40,3 +40,10 @@ export async function getStaticProps(){
         }
     }
 }
+
+//{`${aboutData.resumeURL}`}
+{/* <p>
+                        Gitub <a href="https://github.com/ogao9" className="border-b border-black" target="_blank" rel="noreferrer">@ogao9</a> or 
+                        Resume <a href="/OliverGao-Resume.pdf" className="border-b border-black" target="_blank" rel="noreferrer">Here</a> or&nbsp;
+                        <Link href='/contact'><a className="border-b border-black">Contact Me</a></Link>
+                    </p> */}

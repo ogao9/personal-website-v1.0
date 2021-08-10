@@ -19,7 +19,7 @@ export default function Projects({projectData}) {
             <ProjectCardGrid projectInfo={projectInfo} />
             
             <div className="w-full flex justify-center my-6">
-                <button className="font-semibold px-4 py-2 bg-blue-300  hover:bg-blue-400" onClick={() => setMore(!showMore)}>
+                <button className="font-semibold text-black-text bg-primary hover:bg-yellow-300 px-4 py-2" onClick={() => setMore(!showMore)}>
                     {showMore ? "Show Less" : "Show More"}
                 </button>
             </div>

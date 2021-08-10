@@ -10,24 +10,25 @@ import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 export default function TopNav() {
     const {theme, setTheme} = useTheme();
     const router = useRouter();
-    const [themeIcon, setIcon] = useState(faMoon)
-
-    useEffect(()=>{
-        setIcon(theme === "light" ? faMoon : faSun)
-    },[theme])
 
     return (
         <div className="w-full shadow bg-primary text-black-text dark:bg-black-surface dark:text-white-text">
-            <WideNavBar router={router} theme={theme} setTheme={setTheme} themeIcon={themeIcon}/>
-            <MobileNavDropdown router={router} theme={theme} setTheme={setTheme} themeIcon={themeIcon} />
+            <WideNavBar router={router} theme={theme} setTheme={setTheme} />
+            <MobileNavDropdown router={router} theme={theme} setTheme={setTheme}  />
         </div>
     );
 }
 
 
-function WideNavBar({router, theme, setTheme, themeIcon}){
+function WideNavBar({router, theme, setTheme}){
     return(
-        <nav className="hidden w-full lg:w-9/12 mx-auto md:flex items-center justify-between py-1 md:px-4 lg:px-0">
+        <nav className="hidden md:flex w-full mx-auto lg:w-10/12 items-center justify-between px-4 py-1">
+            <div className="flex-15">
+                <Link href='/'>
+                    <a><Logo/></a>
+                </Link>
+            </div>
+
             <div className="flex-40 flex items-center justify-start"> 
                 <Link href="/">
                     <a className={`top-nav-link ${router.pathname === '/' ? "activeLink" : "" }`}>
@@ -51,23 +52,19 @@ function WideNavBar({router, theme, setTheme, themeIcon}){
                 </Link>
             </div>
 
-            <div className="flex-20 flex justify-center p-2">
-                <Logo/>
-            </div>
-                
             <div className="flex-40 flex justify-end items-center">
                 <button
                     className="p-2"
                     onClick={() => setTheme(theme === "light" ? "dark" : "light")}
                 >
-                    <FontAwesomeIcon icon={themeIcon} className="w-5" />
+                    <FontAwesomeIcon icon={theme === "dark" ? faSun : faMoon} className="w-5" />
                 </button>
             </div>
         </nav>
     )
 }
 
-function MobileNavDropdown({router, theme, setTheme, themeIcon}){
+function MobileNavDropdown({router, theme, setTheme}){
     const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -79,10 +76,15 @@ function MobileNavDropdown({router, theme, setTheme, themeIcon}){
     return (
         <nav className="md:hidden">
             <div className="flex justify-between px-4">
-                <Logo/>
-                <div className="flex justify-end items-center md:hidden">
+                <div className="flex items-center">
+                    <Link href='/'>
+                        <a><Logo/></a>
+                    </Link>
+                </div>
+
+                <div className="flex justify-end items-center">
                     <button className="p-4" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
-                        <FontAwesomeIcon icon={themeIcon} className="w-5" /> 
+                        <FontAwesomeIcon icon={theme === "dark" ? faSun : faMoon} className="w-5" /> 
                     </button>
                     <button className="p-2 ml-2" onClick={() => setMenuOpen(!menuOpen)}>
                         <FontAwesomeIcon icon={faBars} className="w-5" />
@@ -107,7 +109,8 @@ function MobileNavDropdown({router, theme, setTheme, themeIcon}){
                     <Link href="/contact">
                         <a className="mobile-link">Contact Me</a>
                     </Link>
-                </div>}
+                </div>
+            }
         </nav>
     );
 }

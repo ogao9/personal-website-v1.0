@@ -1,11 +1,7 @@
-import Link from 'next/link'
+import { useTheme } from 'next-themes'
 
 export default function Logo() {
-    return (
-        <Link href="/">
-            <a className="text-lg flex items-center">
-                <span className="text-4xl text-yellow-600">O</span>liver Gao
-            </a>
-        </Link>
-    );
+    const {theme} = useTheme();
+
+    return theme === "dark" ? <img src='/OliverLogoDarkMode.svg' className="h-8"/> : <img src='/OliverLogo.svg' className="h-8"/>
 }

@@ -31,17 +31,29 @@ module.exports = {
         },
       },
       fontSize:{
-        'md' : ['1.02rem', {
+        'md' : ['1.03rem', {
           lineHeight: '1.5rem'
         }],
-      }
+      },
+      typography: (theme) => ({
+        dark: {
+          css: {
+            color: '#DEDEDE',
+            h1: {color: '#DEDEDE'},
+            h2: {color: '#DEDEDE'},
+            h3: {color: '#DEDEDE'},
+            h4: {color: '#DEDEDE'},
+            strong: {color: '#DEDEDE'},
+          },
+        },
+      }),
   },
 },
   variants: {
     extend: {
       fontWeight: ["focus", "hover"]
-      
     },
+    typography: ['dark'],
   },
   plugins: [
     require('@tailwindcss/typography'),
