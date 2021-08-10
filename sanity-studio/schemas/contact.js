@@ -19,7 +19,7 @@ export default {
         type: 'text',
       },
       {
-        name: 'submissionTime',
+        name: 'time',
         title: 'Time Submitted',
         type: 'datetime',
       },

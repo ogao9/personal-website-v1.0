@@ -22,7 +22,7 @@ export default function ContactForm(){
         setSuccess(false);
         setLoading(true);
 
-        const submission = { ...formValues, submissionTime: new Date() };
+        const submission = { ...formValues, time: new Date()};
 
         const res = await fetch("/api/contact", {
             method: "POST",
@@ -31,16 +31,23 @@ export default function ContactForm(){
             },
             body: JSON.stringify(submission),
         })
-            .then(() => {
-                setSuccess(true); setLoading(false);
-                setFormValues({
-                    name: "",
-                    email: "",
-                    message: "",
-                });
+            .then((res) => {
+                setLoading(false);
+
+                if(res.status === 401){
+                    res.json().then(data=>setError(data.status))
+                }else{
+                    setSuccess(true);
+                    setFormValues({
+                        name: "",
+                        email: "",
+                        message: "",
+                    });
+                }
             })
             .catch((err) => {
-                setError(true); setLoading(false);
+                setError("Sorry, something went wrong. Message failed to send."); 
+                setLoading(false);
                 console.log(err);
             });
     };
@@ -90,13 +97,13 @@ export default function ContactForm(){
             }
 
             {success && 
-                <div className="px-3 py-2 mt-2 w-full bg-green-700 text-gray-50 rounded animate-toast">
-                    Your message was sent successfully!
+                <div className="w-full bg-green-100 text-black-text border-3 border-green-700 rounded animate-toast px-3 py-2 mt-2">
+                    <b>Success!</b> Your message was sent!
                 </div> }
 
             {error &&
-                <div className="px-3 mt-2 w-full bg-red-500 text-gray-50 rounded animate-toast">
-                    Sorry, something went wrong. Message failed to send.
+                <div className="w-full bg-red-100 text-black-text border-2 border-red-700 rounded animate-toast px-3 py-2 mt-2">
+                    <b>Error!</b> {error}
                 </div>}
         </form>
     );
