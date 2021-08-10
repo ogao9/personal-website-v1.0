@@ -97,7 +97,7 @@ export default function ContactForm(){
             }
 
             {success && 
-                <div className="w-full bg-green-100 text-black-text border-3 border-green-700 rounded animate-toast px-3 py-2 mt-2">
+                <div className="w-full bg-green-100 text-black-text border-2 border-green-700 rounded animate-toast px-3 py-2 mt-2">
                     <b>Success!</b> Your message was sent!
                 </div> }
 
