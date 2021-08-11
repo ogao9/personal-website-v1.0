@@ -24,13 +24,9 @@ export default {
         type: 'text',
       },
       {
-        name: 'resume',
-        title: 'Attach Resume',
-        type: 'file',
-      },
-      {
         name: 'featuredImage',
         title: 'Featured Image',
+        description: 'Image with an aspect Ratio of 1:1 is preferred',
         type: 'image',
         options: {
           hotspot: true,

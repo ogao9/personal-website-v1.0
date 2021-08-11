@@ -45,7 +45,8 @@ export default {
       },
       {
         name: 'image',
-        title: 'Image',
+        title: 'Cover Image',
+        description: 'Image with an aspect Ratio of 16:9 is preferred',
         type: 'image',
         options: {
           hotspot: true,

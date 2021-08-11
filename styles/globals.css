@@ -4,10 +4,10 @@
 
 @layer components {
     .top-nav-link{
-        @apply px-2 py-4 mr-3 lg:p-4  text-md hover:font-semibold focus:font-semibold;
+        @apply text-md hover:font-semibold focus:font-semibold px-2 py-4 lg:p-4 mr-3;
     }
     .mobile-link{
-        @apply block p-4 pl-5 text-base hover:bg-yellow-300 focus:bg-yellow-300;
+        @apply block text-base hover:bg-yellow-300 focus:bg-yellow-300 p-4 pl-5 ;
     }
     .footer-link{
         @apply hover:underline focus:underline;
@@ -29,6 +29,18 @@
     }
 }
 
+.home-square{
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+}
+  
+.home-square-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 .project-card-container{
     display: grid;
@@ -51,5 +63,3 @@
 .contact-form label{
     display: block;
 }
-
-
