@@ -4,7 +4,7 @@ import { faStrava } from '@fortawesome/free-brands-svg-icons';
 
 export default function Phone({homeInfo}) {
     return (
-        <div className="w-96 border shadow-xl rounded-2xl px-4 pt-6 pb-24 slide-in relative bg-gradient-to-r from-green-400 to-blue-500">
+        <div className="w-96 border shadow-xl rounded-2xl px-4 pt-6 pb-8 slide-in relative bg-gradient-to-r from-green-400 to-blue-500 text-black-text">
             <div className="rounded bg-white-light p-2 mb-6 big-glass">
                 <p className="mb-1 font-semibold">Read my latest Blog Post</p>
 
