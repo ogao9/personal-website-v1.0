@@ -3,7 +3,7 @@ import { prettyDate } from "../lib/utlities"
 
 export default function BlogHeader({postInfo}){
     return(
-        <header className="mt-8 lg:mt-12">
+        <header className="mt-8 lg:mt-12 mb-4">
             <h1 className="text-3xl lg:text-4xl font-bold mb-1">{postInfo.title}</h1>
             <p className="text-lg mb-4">{postInfo.excerpt}</p>
 

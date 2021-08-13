@@ -18,6 +18,44 @@ export default {
         title: 'Sub-Headline',
         type: 'text',
       },
+      {
+        title: 'Slot 1',
+        name: 'slot1',
+        type: 'object',
+        fields: [
+          {name: 'title', type: 'string', title: 'Title'},
+          {name: 'data', type: 'reference',
+          to: {type: 'post'}, title: 'Data'},
+        ]
+      },
+      {
+        title: 'Slot 2',
+        name: 'slot2',
+        type: 'object',
+        fields: [
+          {name: 'title', type: 'string', title: 'Title'},
+          {name: 'data', type: 'reference',
+          to: {type: 'Project'}, title: 'Data'},
+        ]
+      },
+      {
+        title: 'Slot 3',
+        name: 'slot3',
+        type: 'object',
+        fields: [
+          {name: 'title', type: 'string', title: 'Title'},
+          {name: 'data', type: 'string', title: 'Data'},
+        ]
+      },
+      {
+        title: 'Slot 4',
+        name: 'slot4',
+        type: 'object',
+        fields: [
+          {name: 'title', type: 'string', title: 'Title'},
+          {name: 'data', type: 'string', title: 'Data'},
+        ]
+      }
     ],
     preview: {
       select: {

@@ -4,10 +4,22 @@ import { faStrava } from '@fortawesome/free-brands-svg-icons';
 
 export default function HomeSquare() {
     return (
-        <div className="home-square bg-gray-200 shadow-sm ">
-            <div className="home-square-content opacity-0 hover:opacity-100 w-full">
-                <FontAwesomeIcon icon={faBlog} className="w-5"/>Read my blog: 
+        <>
+        <section className="flex-1 max-w-xl grid grid-cols-2 gap-4 mt-8">
+            <HomeSquare/>
+            <HomeSquare/>
+            <HomeSquare/>
+            <HomeSquare/>
+        </section>  
+        
+        <div className="home-square shadow-sm rounded-xl p-4 bg-gray-200">
+            <div className="home-square-content w-full h-full flex items-center p-4">
+                <div className="h-full border rounded-lg w-full p-1">
+                    <FontAwesomeIcon icon={faBlog} className="w-5"/>Read my latest blog post: 
+                    How to Grow a Houseplant in a Glass Bottle with Minimal Effort
+                </div>
             </div>
         </div>
+        </>
     );
 }

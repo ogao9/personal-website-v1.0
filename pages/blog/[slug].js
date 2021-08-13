@@ -10,6 +10,7 @@ export default function SinglePost({postInfo}) {
 
             <div className="w-full sm:w-8/12 lg:w-7/12 mx-auto ">
                 <BlogHeader postInfo={postInfo} />
+                
                 <article className="prose dark:prose-dark max-w-full">
                     <BlockContent
                         blocks={postInfo.body}

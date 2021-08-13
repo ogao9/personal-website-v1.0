@@ -63,3 +63,34 @@
 .contact-form label{
     display: block;
 }
+
+
+.big-glass{
+    backdrop-filter: blur(15px);
+    border: 1px solid #ffffff59;
+  background-color: #ffffff59;
+  box-shadow: 2.5px 2.5px 30px 0px rgba(230, 230, 230, 0.459);
+}
+
+.glass-pane{
+    border-radius: 5px;
+    background-color: #ffffff13;
+    backdrop-filter: blur(15px);
+    border: 1px solid #ffffff59;
+    box-shadow: 5px 5px 15px 0px rgba(230, 230, 230, 0.253);
+}
+
+
+.slide-in div{
+    animation: 2s slidein;
+}
+
+@keyframes slidein {
+    from {
+      margin-top: 200px;
+    }
+  
+    to {
+      margin-top: 0;
+    }
+  }

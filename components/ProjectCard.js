@@ -18,7 +18,7 @@ export default function ProjectCard({projectInfo}) {
                 <img
                     src={urlFor(projectInfo.image).url()}
                     alt="Project Cover Photo"
-                    className="w-100 h-100 object-cover "
+                    className="w-100 h-100 object-cover"
                 />
                 {hover && <ImageOverlay projectInfo={projectInfo}/>}
             </div>
@@ -45,11 +45,12 @@ function ImageOverlay({projectInfo}){
                 <FontAwesomeIcon icon={faInfoCircle} className="w-6" />
                 <p>The Details</p>
             </a>
+
             {projectInfo.externalLink &&
-                <a href={projectInfo.externalLink} className="grid place-items-center p-2" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faExternalLinkAlt} className="w-6" />
-                    <p>Live Demo</p>
-                </a>
+            <a href={projectInfo.externalLink} className="grid place-items-center p-2" target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faExternalLinkAlt} className="w-6" />
+                <p>Live Demo</p>
+            </a>
             }
         </div>
     );
@@ -69,7 +70,7 @@ function Tag({ title }) {
     };
     const color = colorMap[title] ? colorMap[title] : "bg-blue-300";
 
-    return <div className={`rounded-xl px-2 mr-1 text-black-text ${color}`}>{title}</div>;
+    return <div className={`rounded-xl px-2 mr-1 text-black-text font-semibold ${color}`}>{title}</div>;
 }
 
 
