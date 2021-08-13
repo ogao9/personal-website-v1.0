@@ -11,6 +11,7 @@ export default {
     {
       name: 'image',
       title: 'Image',
+      description: 'Image with an aspect Ratio of 1:! is preferred',
       type: 'image',
       options: {
         hotspot: true,

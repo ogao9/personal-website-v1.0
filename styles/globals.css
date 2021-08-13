@@ -4,10 +4,10 @@
 
 @layer components {
     .top-nav-link{
-        @apply px-2 py-4 mr-3 lg:p-4  text-md hover:font-semibold focus:font-semibold;
+        @apply text-md hover:font-semibold focus:font-semibold px-2 py-4 lg:p-4 mr-3;
     }
     .mobile-link{
-        @apply block p-4 pl-5 text-base hover:bg-yellow-300 focus:bg-yellow-300;
+        @apply block text-base hover:bg-yellow-300 focus:bg-yellow-300 p-4 pl-5 ;
     }
     .footer-link{
         @apply hover:underline focus:underline;
@@ -29,6 +29,18 @@
     }
 }
 
+.home-square{
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+}
+  
+.home-square-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 .project-card-container{
     display: grid;
@@ -53,3 +65,32 @@
 }
 
 
+.big-glass{
+    backdrop-filter: blur(15px);
+    border: 1px solid #ffffff59;
+  background-color: #ffffff59;
+  box-shadow: 2.5px 2.5px 30px 0px rgba(230, 230, 230, 0.459);
+}
+
+.glass-pane{
+    border-radius: 5px;
+    background-color: #ffffff13;
+    backdrop-filter: blur(15px);
+    border: 1px solid #ffffff59;
+    box-shadow: 5px 5px 15px 0px rgba(230, 230, 230, 0.253);
+}
+
+
+.slide-in div{
+    animation: 2s slidein;
+}
+
+@keyframes slidein {
+    from {
+      margin-top: 200px;
+    }
+  
+    to {
+      margin-top: 0;
+    }
+  }

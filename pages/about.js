@@ -11,18 +11,21 @@ export default function About({aboutData}) {
             <Intro title="About Me" subtitle="An introduction" />
 
             <div className="grid place-items-center md:grid-flow-col md:auto-cols-fr md:place-items-start">
-                <div className="max-w-md mb-4 md:px-8 md:justify-self-end">
-                    <Image src={urlFor(aboutData.featuredImage).url()} alt="Oliver Featured Picture" width={448} height={448} />
+                <div className="max-w-md md:max-w-lg md:justify-self-end md:p-4 lg:px-8 mb-4 ">
+                    <Image src={urlFor(aboutData.featuredImage).url()} alt="Oliver Featured Picture" width={512} height={512} className="rounded-lg" />
                 </div>
 
-                <section className="max-w-md md:px-8 md:max-w-xl mb-4">
+                <section className="max-w-md md:max-w-xl md:p-4 lg:px-8 mb-4">
                     <h1 className="text-2xl font-bold mb-5">{aboutData.headline}</h1>
                     <p className="mb-5">{aboutData.interests}</p>
                     <p className="mb-5">{aboutData.funFacts}</p>
+
                     <p>Learn more about me on:</p>
-                    <p className="ml-6">Gitub @<a href="https://github.com/ogao9" className="underline hover:font-semibold" target="_blank" rel="noreferrer">ogao9</a></p>
-                    <p className="ml-6">Resume <a href="/OliverGao-Resume.pdf" className="underline hover:font-semibold" target="_blank" rel="noreferrer">Here</a></p>
-                    <p className="ml-6">or <Link href='/contact'><a className="underline hover:font-semibold">Contact Me</a></Link></p>
+                    <div className="ml-4">
+                        <span>Gitub @<a href="https://github.com/ogao9" className="underline font-semibold hover:font-bold" target="_blank" rel="noreferrer">ogao9,</a></span>
+                        <span> Resume <a href="/OliverGao-Resume.pdf" className="underline font-semibold hover:font-bold" target="_blank" rel="noreferrer">Here,</a></span>
+                        <span> or <Link href='/contact'><a className="underline font-semibold hover:font-bold">Contact Me</a></Link></span>
+                    </div>
                 </section>
             </div>
 
@@ -40,10 +43,3 @@ export async function getStaticProps(){
         }
     }
 }
-
-//{`${aboutData.resumeURL}`}
-{/* <p>
-                        Gitub <a href="https://github.com/ogao9" className="border-b border-black" target="_blank" rel="noreferrer">@ogao9</a> or 
-                        Resume <a href="/OliverGao-Resume.pdf" className="border-b border-black" target="_blank" rel="noreferrer">Here</a> or&nbsp;
-                        <Link href='/contact'><a className="border-b border-black">Contact Me</a></Link>
-                    </p> */}

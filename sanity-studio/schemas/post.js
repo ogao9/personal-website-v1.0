@@ -31,6 +31,7 @@ export default {
     {
       name: 'coverImage',
       title: 'Cover Image',
+      description: 'Image with an aspect Ratio of 16:9 is preferred',
       type: 'image',
       options: {
         hotspot: true,
@@ -50,6 +51,7 @@ export default {
     {
       name: 'body',
       title: 'Body',
+      description: 'Images with an aspect ratio of 4:3 are preferred',
       type: 'blockContent',
     },
   ],
