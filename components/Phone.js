@@ -1,82 +1,27 @@
+import NotificationStrip from "./NotificationStrip"
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBlog, faProjectDiagram, faStar } from '@fortawesome/free-solid-svg-icons'
-import { faStrava } from '@fortawesome/free-brands-svg-icons';
 
-export default function Phone({homeInfo}) {
+const blogobj = {title: "Read my latest Blog Post", data:"How to grow a plant in a glass cup with minimal effort"}
+const projectobj = {title: "Check out my most recent project", data:"Design.io"}
+const fruitobj = {title: "My current favorite fruit", data:"apples"}
+const stravaobj = {title: "My most recent activity on Strava", data:"Afternoon 2 mile run"}
+
+export default function Phone({homeData}) {
     return (
-        <div className="w-96 border shadow-xl rounded-2xl px-4 pt-6 pb-8 slide-in relative bg-gradient-to-r from-green-400 to-blue-500 text-black-text">
-            <div className="rounded bg-white-light p-2 mb-6 big-glass">
-                <p className="mb-1 font-semibold">Read my latest Blog Post</p>
-
-                <div className="w-full flex justify-between items-center">
-                    <div className="flex-15">
-                        <img
-                            src='/PlantFinal.jpg'
-                            alt="Blog Cover Image"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="flex-1 ml-1">
-                        <h1 className="">How to Grow a Plant in a Glass Cup with Minimal Effort</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div className="rounded bg-white-light p-2 mb-6 big-glass">
-                <p className="mb-1 font-semibold">Check out my most recent project</p>
-                
-                <div className="w-full flex justify-between items-center">
-                    <div className="flex-15">
-                        <img
-                            src='/PlantFinal.jpg'
-                            alt="Blog Cover Image"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="flex-1 ml-1">
-                        <h1 className="">Design.io</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div className="rounded bg-white-light p-2 mb-6 big-glass">
-                <p className="mb-1 font-semibold">My current favorite fruit (it changes often)</p>
-                
-                <div className="w-full flex justify-between items-center">
-                    <div className="flex-15">
-                        <img
-                            src='/PlantFinal.jpg'
-                            alt="Blog Cover Image"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="flex-1 ml-1">
-                        <h1 className="">Apples</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div className="rounded bg-white-light p-2 mb-6 big-glass">
-                <p className="mb-1 font-semibold">My most recent activity on Strava</p>
-                
-                <div className="w-full flex justify-between items-center">
-                    <div className="flex-15">
-                        <img
-                            src='/PlantFinal.jpg'
-                            alt="Blog Cover Image"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="flex-1 ml-1">
-                        <h1 className="">Afternoon 2 mile run</h1>
-                    </div>
-                </div>
-            </div>
-
-            {/* <div className="p-4 big-glass text-black absolute bottom-0 w-full left-0 rounded-b-2xl">
-                <p>Hello!</p>
-            </div> */}
+        <div className="w-96 shadow-xl px-6 pt-4 pb-24 relative text-white-text border-4 border-black-surface rounded-2xl bg-blue-600">
+            <h1 className="text-4xl my-4 pl-1 text-center">11 : 20</h1>
             
+            <NotificationStrip slotInfo={blogobj}/>
+            <NotificationStrip slotInfo={projectobj}/>
+            <NotificationStrip slotInfo={fruitobj}/>
+            <NotificationStrip slotInfo={stravaobj}/>
+
+            <div className="w-full rounded-b-2xl absolute bottom-0 left-0 text-white-text p-6 flex justify-around">
+                <FontAwesomeIcon icon={faBlog} className="w-12 p-4 bg-gray-800 rounded-full"/>
+                <FontAwesomeIcon icon={faStar} className="w-12 p-4 bg-gray-800 rounded-full"/>
+            </div>
         </div>
     )
 }

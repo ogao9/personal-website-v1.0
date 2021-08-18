@@ -3,7 +3,7 @@ import Logo from '../components/Logo'
 
 export default function Footer() { 
     return (
-        <footer className="w-full shadow-inner bg-primary text-black dark:bg-black-surface dark:text-white-text">
+        <footer className="w-full shadow-inner bg-black-surface text-white-text">
             <div className="flex flex-col items-center p-5">
                 <nav className="w-80 flex justify-between mb-2">
                     <Link href="/about">

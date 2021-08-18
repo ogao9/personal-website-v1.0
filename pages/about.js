@@ -22,9 +22,9 @@ export default function About({aboutData}) {
 
                     <p>Learn more about me on:</p>
                     <div className="ml-4">
-                        <span>Gitub @<a href="https://github.com/ogao9" className="underline font-semibold hover:font-bold" target="_blank" rel="noreferrer">ogao9,</a></span>
-                        <span> Resume <a href="/OliverGao-Resume.pdf" className="underline font-semibold hover:font-bold" target="_blank" rel="noreferrer">Here,</a></span>
-                        <span> or <Link href='/contact'><a className="underline font-semibold hover:font-bold">Contact Me</a></Link></span>
+                        <span>Gitub @<a href="https://github.com/ogao9" className="underline hover:opacity-80" target="_blank" rel="noreferrer">ogao9,</a></span>
+                        <span> Resume <a href="/resume.pdf" className="underline hover:opacity-80" target="_blank" rel="noreferrer">Here,</a></span>
+                        <span> or <Link href='/contact'><a className="underline hover:opacity-80">Contact Me</a></Link></span>
                     </div>
                 </section>
             </div>

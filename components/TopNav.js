@@ -3,27 +3,26 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useTheme } from 'next-themes'
 
-import Logo from './Logo'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
+import Logo from './Logo'
 
 export default function TopNav() {
     const {theme, setTheme} = useTheme();
     const router = useRouter();
 
     return (
-        <div className="w-full shadow bg-primary text-black-text dark:bg-black-surface dark:text-white-text">
+        <div className="sticky top-0 z-50  w-full shadow bg-black-surface text-white-text">
             <WideNavBar router={router} theme={theme} setTheme={setTheme} />
             <MobileNavDropdown router={router} theme={theme} setTheme={setTheme}  />
         </div>
     );
 }
 
-
 function WideNavBar({router, theme, setTheme}){
     return(
         <nav className="hidden md:flex w-full mx-auto lg:w-10/12 items-center justify-between px-4 py-1">
-            <div className="flex-15">
+            <div className="flex-15 mr-2">
                 <Link href='/'>
                     <a><Logo/></a>
                 </Link>

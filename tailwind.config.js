@@ -5,12 +5,14 @@ module.exports = {
     extend:{
       colors: {
         primary: "#fbbf24",
+        primaryHover: "#fab607",
         secondary: "#2461fb",
         extra1: "#fb5324",
         extra2: "#ccfb24",
         black:{
           DEFAULT: "#121212",
           surface: "#242424",
+          light: "##393939",
           text: '#212121'
         },
         white:{
