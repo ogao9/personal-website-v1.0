@@ -15,7 +15,7 @@ export default function About({aboutData}) {
                     <Image src={urlFor(aboutData.featuredImage).url()} alt="Oliver Featured Picture" width={512} height={512} className="rounded-lg" />
                 </div>
 
-                <section className="max-w-md md:max-w-xl md:p-4 lg:px-8 mb-4">
+                <section className="max-w-md md:max-w-xl md:p-4 lg:px-8 mb-4 text-md">
                     <h1 className="text-2xl font-bold mb-5">{aboutData.headline}</h1>
                     <p className="mb-5">{aboutData.interests}</p>
                     <p className="mb-5">{aboutData.funFacts}</p>

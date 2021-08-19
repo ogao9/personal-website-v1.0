@@ -12,7 +12,7 @@ module.exports = {
         black:{
           DEFAULT: "#121212",
           surface: "#242424",
-          light: "##393939",
+          light: "#393939",
           text: '#212121'
         },
         white:{

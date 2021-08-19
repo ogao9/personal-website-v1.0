@@ -4,7 +4,7 @@
 
 @layer components {
     .top-nav-link{
-        @apply text-md hover:font-semibold focus:font-semibold mx-3 py-4 lg:mr-6;
+        @apply text-md hover:opacity-80  mx-3 py-4 lg:mr-6;
     }
     .mobile-link{
         @apply block text-base hover:bg-black-light focus:bg-black-light p-4 pl-5 ;
@@ -78,12 +78,12 @@
 
 @keyframes slidein {
     from {
-        margin-top: 10vh;
+        transform: translateY(20%);
         opacity: 0;
       }
     
       to {
         opacity: 1;
-        margin-top: 0;
+        transform: translateY(0%);
       }
   }
