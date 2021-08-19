@@ -53,12 +53,7 @@ export default function ContactForm(){
     };
 
     return (
-        <form className="contact-form w-full max-w-lg 2xl:max-w-2xl" onSubmit={handleSubmit}>
-            <div className="hidden lg:block">
-                <h1 className="text-2xl font-bold">Contact Form</h1>
-                <p className="mb-4">Hello there. This is the easiest way to contact me.</p>
-            </div>
-
+        <form className="contact-form w-full max-w-lg 2xl:max-w-xl" onSubmit={handleSubmit}>
             <label>
                 Name
                 <input
@@ -93,7 +88,9 @@ export default function ContactForm(){
                 <button className="w-20 py-2 bg-blue-500 rounded flex justify-center" disabled>
                     <FontAwesomeIcon icon={faSpinner} className="w-5 animate-spin"/>
                 </button> 
-            :   <button type="submit" className=" bg-blue-500 hover:bg-blue-600 text-white-light rounded px-4 py-2">Submit</button>
+            :   <button type="submit" className="bg-blue-400 hover:bg-blue-500 text-black-text  rounded px-4 py-2">
+                    Submit
+                </button>
             }
 
             {success && 

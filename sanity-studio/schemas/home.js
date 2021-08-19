@@ -19,6 +19,11 @@ export default {
         type: 'text',
       },
       {
+        name: 'subhead2',
+        title: 'Sub-Headline 2',
+        type: 'string',
+      },
+      {
         title: 'Slot 1',
         name: 'slot1',
         type: 'object',

@@ -1,82 +1,98 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBlog, faProjectDiagram, faStar } from '@fortawesome/free-solid-svg-icons'
-import { faStrava } from '@fortawesome/free-brands-svg-icons';
+import { useState } from "react";
+import { useTheme } from 'next-themes'
+import NotificationStrip from "./NotificationStrip";
+import ContactForm from './ContactForm'
+import { prettyDate } from "../lib/utlities";
+import { urlFor } from "../lib/sanity";
 
-export default function Phone({homeInfo}) {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane, faHome, faMoon, faProjectDiagram, faBlog, faAppleAlt, faSun } from "@fortawesome/free-solid-svg-icons";
+import { faStrava } from "@fortawesome/free-brands-svg-icons";
+
+export default function Phone({ homeData }) {
+    const {theme, setTheme} = useTheme();
+    const[page, setPage] = useState(1)
+
+    const hour = new Date().getHours()
+    const minutes = new Date().getMinutes()
+    const time = `${hour === 0 ? '00' : hour}:${minutes < 10 ? '0' : ''}${minutes}`
+
+    const pageControl = ()=>{
+        if(page===1)
+            setPage(2)
+        else
+            setPage(1)
+    }
+
+
+    const blogobj = {
+        title: homeData.slot1_title,
+        data: homeData.slot1_data.title,
+        link: `/blog/${homeData.slot1_data.slug.current}`,
+        category: "Blog",
+        icon: faBlog,
+        imageUrl: urlFor(homeData.slot1_data.coverImage),
+    };
+
+    const projectobj = {
+        title: homeData.slot2_title,
+        data: homeData.slot2_data.name,
+        link: `/projects/${homeData.slot2_data.slug.current}`,
+        category: "Projects",
+        icon: faProjectDiagram,
+        imageUrl: urlFor(homeData.slot2_data.image),
+    };
+
+    const slot3obj = {
+        title: homeData.slot3.title,
+        data: homeData.slot3.data,
+        category: "Fruit Tracker",
+        icon: faAppleAlt,
+        imageUrl: '/PlantFinal.jpg'
+    };
+
+    const slot4obj = {
+        title: homeData.slot4.title,
+        data: homeData.slot4.data,
+        category: "Strava",
+        icon: faStrava,
+        imageUrl: '/PlantFinal.jpg'
+    };
+
     return (
-        <div className="w-96 border shadow-xl rounded-2xl px-4 pt-6 pb-8 slide-in relative bg-gradient-to-r from-green-400 to-blue-500 text-black-text">
-            <div className="rounded bg-white-light p-2 mb-6 big-glass">
-                <p className="mb-1 font-semibold">Read my latest Blog Post</p>
+        <div className="w-96 relative rounded-2xl bg-blue-500 shadow-xl border-4 border-black-surface px-6 pb-24 pt-8">
 
-                <div className="w-full flex justify-between items-center">
-                    <div className="flex-15">
-                        <img
-                            src='/PlantFinal.jpg'
-                            alt="Blog Cover Image"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="flex-1 ml-1">
-                        <h1 className="">How to Grow a Plant in a Glass Cup with Minimal Effort</h1>
-                    </div>
+            {page === 1 && 
+                <div>
+                <h1 className="text-6xl text-center text-white-light tracking-wider">{time}</h1>
+                <p className="text-white text-center mb-6">{prettyDate(new Date())}</p>
+                    <NotificationStrip slotInfo={blogobj} />
+                    <NotificationStrip slotInfo={projectobj} />
+                    <NotificationStrip slotInfo={slot3obj} />
+                    <NotificationStrip slotInfo={slot4obj} />
                 </div>
-            </div>
+            }
 
-            <div className="rounded bg-white-light p-2 mb-6 big-glass">
-                <p className="mb-1 font-semibold">Check out my most recent project</p>
-                
-                <div className="w-full flex justify-between items-center">
-                    <div className="flex-15">
-                        <img
-                            src='/PlantFinal.jpg'
-                            alt="Blog Cover Image"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="flex-1 ml-1">
-                        <h1 className="">Design.io</h1>
-                    </div>
+            {page === 2 &&
+                <div className="pb-36">
+                    <h1 className="text-3xl font-bold text-center text-white-light mb-6">Contact Me</h1>
+                    <div className="text-white"><ContactForm/></div>
                 </div>
-            </div>
+            }
 
-            <div className="rounded bg-white-light p-2 mb-6 big-glass">
-                <p className="mb-1 font-semibold">My current favorite fruit (it changes often)</p>
-                
-                <div className="w-full flex justify-between items-center">
-                    <div className="flex-15">
-                        <img
-                            src='/PlantFinal.jpg'
-                            alt="Blog Cover Image"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="flex-1 ml-1">
-                        <h1 className="">Apples</h1>
-                    </div>
-                </div>
+            <div className="w-full rounded-b-2xl absolute bottom-0 left-0 text-white-text p-6 flex justify-around">
+                <FontAwesomeIcon
+                    icon={page===2 ? faHome : faPaperPlane}
+                    className="w-14 p-4 bg-gray-800 rounded-full cursor-pointer"
+                    onClick={pageControl}
+                />
+                <FontAwesomeIcon
+                    icon={theme === "dark" ? faSun : faMoon}
+                    className="w-14 p-4 bg-gray-800 rounded-full cursor-pointer"
+                    onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                />
             </div>
-
-            <div className="rounded bg-white-light p-2 mb-6 big-glass">
-                <p className="mb-1 font-semibold">My most recent activity on Strava</p>
-                
-                <div className="w-full flex justify-between items-center">
-                    <div className="flex-15">
-                        <img
-                            src='/PlantFinal.jpg'
-                            alt="Blog Cover Image"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="flex-1 ml-1">
-                        <h1 className="">Afternoon 2 mile run</h1>
-                    </div>
-                </div>
-            </div>
-
-            {/* <div className="p-4 big-glass text-black absolute bottom-0 w-full left-0 rounded-b-2xl">
-                <p>Hello!</p>
-            </div> */}
-            
         </div>
-    )
+    );
 }
+

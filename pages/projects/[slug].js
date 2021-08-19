@@ -15,7 +15,7 @@ export default function SingleProjectDetails({projectDetails}) {
                 <p>The Details</p>
             </header>
 
-            <section className="w-full lg:w-8/12 mx-auto flex justify-center font-semibold mb-6 text-md">
+            <section className="w-full lg:w-8/12 mx-auto flex justify-center font-medium mb-6">
                 {projectDetails.externalLink &&
                 <a href={projectDetails.externalLink} className="grid place-items-center px-4 " target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={faExternalLinkAlt} className="w-5" /> 
@@ -38,7 +38,7 @@ export default function SingleProjectDetails({projectDetails}) {
             </div>
             
             <div className="w-full lg:w-8/12 mx-auto">
-                <article className="prose dark:prose-dark max-w-full">
+                <article className="prose prose-lg dark:prose-dark max-w-full">
                     <BlockContent
                         blocks={projectDetails.body}
                         imageOptions={{ w: 800, h: 450, fit: "max" }}

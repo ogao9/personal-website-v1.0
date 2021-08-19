@@ -4,16 +4,16 @@
 
 @layer components {
     .top-nav-link{
-        @apply text-md hover:font-semibold focus:font-semibold px-2 py-4 lg:p-4 mr-3;
+        @apply text-md hover:opacity-80  mx-3 py-4 lg:mr-6;
     }
     .mobile-link{
-        @apply block text-base hover:bg-yellow-300 focus:bg-yellow-300 p-4 pl-5 ;
+        @apply block text-base hover:bg-black-light focus:bg-black-light p-4 pl-5 ;
     }
     .footer-link{
         @apply hover:underline focus:underline;
     }
     .activeLink{
-        @apply font-semibold;
+        @apply border-b-2 border-white-text;
     }
     .input{
         @apply block mb-3 rounded-lg w-full border-2 border-gray-200 dark:bg-black-surface dark:border-transparent;
@@ -22,24 +22,18 @@
 
 @layer utilities {
     .flex-15{
-        flex: 0 0 15%;
+      flex: 0 0 15%;
     }
+    .flex-20{
+        flex: 0 0 20%;
+     }
     .flex-40{
         flex: 0 1 40%;
     }
 }
 
-.home-square{
-    width: 100%;
-    padding-top: 100%;
-    position: relative;
-}
-  
-.home-square-content{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.phone-background{
+    background-image: url(../public/abstract-envelope.svg);
 }
 
 .project-card-container{
@@ -70,6 +64,8 @@
     border: 1px solid #ffffff59;
   background-color: #ffffff59;
   box-shadow: 2.5px 2.5px 30px 0px rgba(230, 230, 230, 0.459);
+  animation: 2s slidein;
+
 }
 
 .glass-pane{
@@ -80,17 +76,14 @@
     box-shadow: 5px 5px 15px 0px rgba(230, 230, 230, 0.253);
 }
 
-
-.slide-in div{
-    animation: 2s slidein;
-}
-
 @keyframes slidein {
     from {
-      margin-top: 200px;
-    }
-  
-    to {
-      margin-top: 0;
-    }
+        transform: translateY(20%);
+        opacity: 0;
+      }
+    
+      to {
+        opacity: 1;
+        transform: translateY(0%);
+      }
   }
