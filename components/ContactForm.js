@@ -35,7 +35,7 @@ export default function ContactForm(){
                 setLoading(false);
 
                 if(res.status === 401){
-                    res.json().then(data=>setError(data.status))
+                    res.json().then( data => setError(data.status))
                 }else{
                     setSuccess(true);
                     setFormValues({
@@ -53,7 +53,7 @@ export default function ContactForm(){
     };
 
     return (
-        <form className="contact-form w-full max-w-lg 2xl:max-w-xl" onSubmit={handleSubmit}>
+        <form className="w-full max-w-lg 2xl:max-w-xl contact-form" onSubmit={handleSubmit}>
             <label>
                 Name
                 <input
@@ -88,18 +88,18 @@ export default function ContactForm(){
                 <button className="w-20 py-2 bg-blue-500 rounded flex justify-center" disabled>
                     <FontAwesomeIcon icon={faSpinner} className="w-5 animate-spin"/>
                 </button> 
-            :   <button type="submit" className="bg-blue-400 hover:bg-blue-500 text-black-text  rounded px-4 py-2">
+            :   <button type="submit" className="bg-blue-400 text-black-text hover:opacity-90  rounded px-4 py-2 mt-2">
                     Submit
                 </button>
             }
 
             {success && 
-                <div className="w-full bg-green-100 text-black-text border-2 border-green-700 rounded animate-toast px-3 py-2 mt-2">
+                <div className="bg-green-100 text-black-text border-2 border-green-700 rounded px-3 py-2 mt-2 animate-toast">
                     <b>Success!</b> Your message was sent!
                 </div> }
 
             {error &&
-                <div className="w-full bg-red-100 text-black-text border-2 border-red-700 rounded animate-toast px-3 py-2 mt-2">
+                <div className="bg-red-100 text-black-text border-2 border-red-700 rounded px-3 py-2 mt-2 animate-toast">
                     <b>Error!</b> {error}
                 </div>}
         </form>

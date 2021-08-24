@@ -29,7 +29,7 @@ export default {
       to: {type: 'author'},
     },
     {
-      name: 'coverImage',
+      name: 'image',
       title: 'Cover Image',
       description: 'Image with an aspect Ratio of 16:9 is preferred',
       type: 'image',
@@ -60,7 +60,7 @@ export default {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'coverImage',
+      media: 'image',
     },
     prepare(selection) {
       const {author} = selection

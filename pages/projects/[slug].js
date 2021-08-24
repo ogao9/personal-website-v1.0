@@ -5,39 +5,23 @@ import { getProjectPaths, getProjectData, urlFor } from "../../lib/sanity";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import Intro from "../../components/Intro";
 
 export default function SingleProjectDetails({projectDetails}) {
     return (
-        <div>
-            <Meta title={`${projectDetails.name} | Oliver Gao`} />
-            <header className="text-center mt-10 mb-6">
-                <h1 className="text-3xl font-bold">{projectDetails.name}</h1>
-                <p>The Details</p>
-            </header>
-
-            <section className="w-full lg:w-8/12 mx-auto flex justify-center font-medium mb-6">
-                {projectDetails.externalLink &&
-                <a href={projectDetails.externalLink} className="grid place-items-center px-4 " target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faExternalLinkAlt} className="w-5" /> 
-                    <p>Live Demo</p>
-                </a>}
-
-                {projectDetails.githubLink &&
-                <a href={projectDetails.githubLink} className="grid place-items-center px-4" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faGithub} className="w-5" />
-                    <p>Github</p>
-                </a>}
-            </section>
+        <>
+            <Meta title={`${projectDetails.title} | Oliver Gao`} />
+            <Intro title={projectDetails.title} subtitle="Description, Technologies Used, and Features"/>
 
             <div className="w-full lg:w-8/12 mx-auto">
                 <img
                     src={urlFor(projectDetails.image).url()}
                     alt="project cover"
-                    className="w-100 h-auto object-cover"
+                    className="w-full h-auto object-cover"
                 />
             </div>
-            
-            <div className="w-full lg:w-8/12 mx-auto">
+
+            <div className="w-full lg:w-8/12 mx-auto pb-8">
                 <article className="prose prose-lg dark:prose-dark max-w-full">
                     <BlockContent
                         blocks={projectDetails.body}
@@ -45,7 +29,7 @@ export default function SingleProjectDetails({projectDetails}) {
                     />
                 </article>
             </div>
-        </div>
+        </>
     );
 }
 
@@ -67,4 +51,22 @@ export async function getStaticProps(context){
             projectDetails
         }
     }
+}
+
+const externalInfo = () =>{
+    return(
+        <section className="w-full lg:w-8/12 mx-auto flex justify-center mb-4">
+            {projectDetails.externalLink &&
+                <a href={projectDetails.externalLink} className="grid place-items-center pr-4" target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon icon={faExternalLinkAlt} className="w-5" /> 
+                    <p>Live Example</p>
+                </a>}
+
+            {projectDetails.githubLink &&
+                <a href={projectDetails.githubLink} className="grid place-items-center px-4" target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon icon={faGithub} className="w-5" />
+                    <p>Github</p>
+                </a>}
+        </section>
+    )
 }

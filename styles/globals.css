@@ -4,7 +4,7 @@
 
 @layer components {
     .top-nav-link{
-        @apply text-md hover:opacity-80  mx-3 py-4 lg:mr-6;
+        @apply text-md hover:opacity-80 mx-3 md:mr-6 py-4;
     }
     .mobile-link{
         @apply block text-base hover:bg-black-light focus:bg-black-light p-4 pl-5 ;
@@ -16,7 +16,10 @@
         @apply border-b-2 border-white-text;
     }
     .input{
-        @apply block mb-3 rounded-lg w-full border-2 border-gray-200 dark:bg-black-surface dark:border-transparent;
+        @apply block mt-1 mb-3 rounded-lg w-full border-2 border-gray-200 bg-white dark:bg-black-surface dark:border-transparent;
+    }
+    .learn-more{
+        @apply font-semibold underline hover:opacity-80 focus:opacity-80 ;
     }
 }
 
@@ -30,15 +33,14 @@
     .flex-40{
         flex: 0 1 40%;
     }
-}
-
-.phone-background{
-    background-image: url(../public/abstract-envelope.svg);
+    .aspect-square{
+        aspect-ratio: 1 / 1;
+    }
 }
 
 .project-card-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
     grid-auto-rows: 375px;
     grid-gap: 1rem;
     margin-bottom: 1rem;
@@ -58,14 +60,19 @@
     display: block;
 }
 
+.home-contact input, .home-contact textarea{
+    backdrop-filter: blur(15px);
+    border: 1px solid #ffffff77;
+    background-color: #ffffff77;
+    box-shadow: 2.5px 2.5px 10px 0px rgba(230, 230, 230, 0.459);
+}
 
 .big-glass{
     backdrop-filter: blur(15px);
     border: 1px solid #ffffff59;
-  background-color: #ffffff59;
-  box-shadow: 2.5px 2.5px 30px 0px rgba(230, 230, 230, 0.459);
-  animation: 2s slidein;
-
+    background-color: #ffffff59;
+    box-shadow: 2.5px 2.5px 20px 0px rgba(230, 230, 230, 0.459);
+    animation: 2s slidein;
 }
 
 .glass-pane{
@@ -73,7 +80,7 @@
     background-color: #ffffff13;
     backdrop-filter: blur(15px);
     border: 1px solid #ffffff59;
-    box-shadow: 5px 5px 15px 0px rgba(230, 230, 230, 0.253);
+    box-shadow: 5px 5px 10px 0px rgba(230, 230, 230, 0.253);
 }
 
 @keyframes slidein {

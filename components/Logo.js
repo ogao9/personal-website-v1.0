@@ -1,5 +1,5 @@
 
 
 export default function Logo() {
-    return <img src='/OliverLogoDarkMode.svg' className="h-8"/>
+    return <img src='/OliverLogoAlt.svg' className="h-8"/>
 }

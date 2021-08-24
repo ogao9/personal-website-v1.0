@@ -14,13 +14,8 @@ export default {
         type: 'text',
       },
       {
-        name: 'subhead',
+        name: 'subheadline',
         title: 'Sub-Headline',
-        type: 'text',
-      },
-      {
-        name: 'subhead2',
-        title: 'Sub-Headline 2',
         type: 'string',
       },
       {
@@ -31,6 +26,8 @@ export default {
           {name: 'title', type: 'string', title: 'Title'},
           {name: 'data', type: 'reference',
           to: {type: 'post'}, title: 'Data'},
+          {name: 'category', type: 'string', title: 'Category'},
+          {name: 'link', type: 'url', title: 'Link'},
         ]
       },
       {
@@ -41,6 +38,8 @@ export default {
           {name: 'title', type: 'string', title: 'Title'},
           {name: 'data', type: 'reference',
           to: {type: 'Project'}, title: 'Data'},
+          {name: 'category', type: 'string', title: 'Category'},
+          {name: 'link', type: 'url', title: 'Link'},
         ]
       },
       {
@@ -50,6 +49,8 @@ export default {
         fields: [
           {name: 'title', type: 'string', title: 'Title'},
           {name: 'data', type: 'string', title: 'Data'},
+          {name: 'category', type: 'string', title: 'Category'},
+          {name: 'link', type: 'url', title: 'Link'},
         ]
       },
       {
@@ -59,6 +60,8 @@ export default {
         fields: [
           {name: 'title', type: 'string', title: 'Title'},
           {name: 'data', type: 'string', title: 'Data'},
+          {name: 'category', type: 'string', title: 'Category'},
+          {name: 'link', type: 'url', title: 'Link'},
         ]
       }
     ],
