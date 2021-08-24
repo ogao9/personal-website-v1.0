@@ -1,6 +1,6 @@
+import BlockContent from '@sanity/block-content-to-react'
 import Meta from "../../components/Meta";
 import BlogHeader from "../../components/BlogHeader";
-import BlockContent from '@sanity/block-content-to-react'
 import { getPostData, getPostPaths } from "../../lib/sanity";
 
 export default function SinglePost({postInfo}) {
@@ -8,7 +8,7 @@ export default function SinglePost({postInfo}) {
         <>
             <Meta title={`Oliver's Blog | ${postInfo.title}`} />
 
-            <div className="w-full sm:w-8/12 lg:w-7/12 mx-auto ">
+            <div className="w-full sm:w-8/12 lg:w-7/12 mx-auto pb-8">
                 <BlogHeader postInfo={postInfo} />
                 
                 <article className="prose prose-lg dark:prose-dark max-w-full">

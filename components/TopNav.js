@@ -12,7 +12,7 @@ export default function TopNav() {
     const router = useRouter();
 
     return (
-        <div className="sticky top-0 z-50  w-full shadow bg-black-surface text-white-text">
+        <div className="sticky top-0 z-50 w-full shadow bg-black-surface text-white-text">
             <WideNavBar router={router} theme={theme} setTheme={setTheme} />
             <MobileNavDropdown router={router} theme={theme} setTheme={setTheme}  />
         </div>
@@ -21,7 +21,7 @@ export default function TopNav() {
 
 function WideNavBar({router, theme, setTheme}){
     return(
-        <nav className="hidden md:flex w-full mx-auto lg:w-10/12 items-center justify-between px-4 py-1">
+        <nav className="hidden md:flex w-full max-w-screen-xl mx-auto items-center justify-between px-4 py-1">
             <div className="flex-15 mr-2">
                 <Link href='/'>
                     <a><Logo/></a>
@@ -73,7 +73,7 @@ function MobileNavDropdown({router, theme, setTheme}){
     }, [router.asPath]);
 
     return (
-        <nav className="md:hidden">
+        <nav className="md:hidden py-1">
             <div className="flex justify-between px-4">
                 <div className="flex items-center">
                     <Link href='/'>

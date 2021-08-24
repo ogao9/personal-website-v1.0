@@ -33,8 +33,8 @@ module.exports = {
         },
       },
       fontSize:{
-        'md' : ['1.03rem', {
-          lineHeight: '1.5rem'
+        'md' : ['1.04rem', {
+          lineHeight: '1.6rem'
         }],
       },
       typography: (theme) => ({

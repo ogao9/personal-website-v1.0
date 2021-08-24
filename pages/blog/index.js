@@ -8,10 +8,7 @@ export default function BlogHome({ postsInfo }) {
     return (
         <>
             <Meta title="Blog | Oliver Gao" />
-            <Intro
-                title="Welcome to the Blog!"
-                subtitle="A small collection of my thoughts and ideas"
-            />
+            <Intro title="Welcome to the Blog!" subtitle="A small collection of my thoughts and ideas"/>
 
             <section className="w-full lg:w-8/12 mx-auto">
                 <div>
